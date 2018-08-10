@@ -27,7 +27,7 @@ class CreateGrowlogsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('growlog_id');
             $table->unsignedInteger('stage_id');
-            $table->date('stage_at');
+            $table->date('stage_at')->nullable();
             $table->timestamps();
 
             // $table->foreign('growlog_id')->references('id')->on('growlogs')->onDelete('cascade');

@@ -9,7 +9,7 @@ class Growlog extends Model
   protected $fillable = [
       'name', 'user_id',
   ];
-  
+
   public function user()
   {
       return $this->belongsTo('App\Models\User');
@@ -18,5 +18,10 @@ class Growlog extends Model
   public function days()
   {
       return $this->hasMany('App\Models\GrowlogDay');
+  }
+
+  public function stages()
+  {
+      return $this->belongsToMany('App\Models\Stage', 'growlog_stage');
   }
 }
