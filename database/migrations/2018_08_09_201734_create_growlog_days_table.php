@@ -24,14 +24,14 @@ class CreateGrowlogDaysTable extends Migration
 
       Schema::create('growlog_day_images', function (Blueprint $table) {
           $table->increments('id');
-          $table->unsignedInteger('growlog_day_id');
+          $table->unsignedInteger('growlog_day_id')->nullable();
           $table->longText('link');
           $table->timestamps();
       });
 
       Schema::create('growlog_day_texts', function (Blueprint $table) {
           $table->increments('id');
-          $table->unsignedInteger('growlog_day_id');
+          $table->unsignedInteger('growlog_day_id')->nullable();
           $table->longText('content');
           $table->timestamps();
       });
