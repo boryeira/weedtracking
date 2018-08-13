@@ -14,7 +14,7 @@ class GrowlogController extends Controller
      */
     public function index()
     {
-        //
+        return view('growlogs.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class GrowlogController extends Controller
      */
     public function show(Growlog $growlog)
     {
-        //
+      return view('growlogs.show')->with('growlog',$growlog);
     }
 
     /**
