@@ -25,10 +25,16 @@
             {
               title: '{!!$day->date!!}',
               start: '{!!$day->date!!}',
+              imageurl: '/img/plant.png',
             },
             @endforeach
 
-          ]
+           ],
+           eventRender: function(event, eventElement) {
+              if (event.imageurl) {
+                  eventElement.find("div.fc-content").prepend("<div'><img src='" + event.imageurl +"' width='100'></div>");
+              }
+           },
         })
       });
     </script>
