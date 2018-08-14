@@ -25,4 +25,8 @@ class GrowlogDay extends Model
   {
       return $this->hasMany('App\Models\Growlogs\GrowlogDayImage');
   }
+  public function texts()
+  {
+      return $this->hasMany('App\Models\Growlogs\GrowlogDayText');
+  }
 }

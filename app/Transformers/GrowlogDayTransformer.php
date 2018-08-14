@@ -13,69 +13,37 @@ class GrowlogDayTransformer extends TransformerAbstract
     return [
       'id' => (string)$growlogDay->id,
       'fecha' => (string)$growlogDay->date,
+      //fullcalendar
+      'title' => (string)$growlogDay->id,
+      'start' => (string)$growlogDay->date,
+
       'fechaCreacion' => (string)$growlogDay->created_at,
       'dia' => $growlogDay->stage_day,
       'images' => [
         'count' => count($growlogDay->images),
-        'links' => [
-          foreach ($growlogDay->images as $key => $image) {
-            $key 
-          }
-        ]
+        'links' => $growlogDay->images->toArray(),
+      ],
+      'texts' => [
+        'count' => count($growlogDay->texts),
+        'links' => $growlogDay->texts->toArray(),
       ],
     ];
   }
+
+
 
   public static function originalAttribute($index)
   {
     $attributes = [
         'id' => 'id',
         'dia' => 'date',
+        'title' => 'id',
+        'start' => 'date',
         'fechaCreacion' => 'created_at',
     ];
 
     return isset($attributes[$index]) ? $attributes[$index] : null;
   }
 
-    /**
-     * A Fractal transformer.
-     *
-     * @return array
-     */
-    // public function transform(Company $company)
-    // {
-    //   return [
-    //     'RUT' => (string)$company->rut,
-    //     'RUT_formated' => (string)Rut::set($company->rut)->fix()->format(),
-    //     'RazonSocial' => (string)$company->razon_social,
-    //     'fechaCreacion' => (string)$company->created_at,
-    //     'fechaActualizacion' => (string)$company->updated_at,
-    //     'fechaEliminacion' => isset($company->deleted_at) ? (string) $company->deleted_at : null,
-    //
-    //     'links' => [
-    //       [
-    //         'rel' => 'self',
-    //         'href' => route('companies.show', $company->rut),
-    //       ],
-    //       [
-    //         'rel' => 'activities.companies',
-    //         'href' => route('companies.activities.index', $company->rut),
-    //       ],
-    //     ],
-    //   ];
-    // }
-    //
-    // public static function originalAttribute($index)
-    // {
-    //   $attributes = [
-    //       'RUT' => 'rut',
-    //       'RazonSocial' => 'razon_social',
-    //       'fechaCreacion' => 'created_at',
-    //       'fechaActualizacion' => 'updated_at',
-    //       'fechaEliminacion' => 'deleted_at',
-    //   ];
-    //
-    //   return isset($attributes[$index]) ? $attributes[$index] : null;
-    // }
 
 }

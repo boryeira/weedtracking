@@ -44,6 +44,29 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
     }
 
+    //Función pública pque regresa toda una colección
+    protected function showAllFullcalendar(Collection $collection, $code = 200)
+    {
+      if ($collection->isEmpty()) {
+        return $this->succesResponse(['data' => $collection], $code);
+      }
+
+      $transformer = $collection->first()->transformer;
+
+      $collection = $this->filtrarDatos($collection, $transformer);
+
+      $collection = $this->ordenarData($collection, $transformer);
+
+      $collection = $this->paginate($collection, $transformer);
+
+      $collection = $this->transformData($collection, $transformer);
+
+      $collection = $this->cacheResponse($collection);
+
+      return $this->succesResponse($collection, $code);
+
+    }
+
     //Función protegida que regresa toda una instancia
     protected function showOne(Model $instance, $code)
     {

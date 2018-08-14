@@ -12,17 +12,19 @@ class GrowlogDayImageTransformer extends TransformerAbstract
   {
     return [
       'id' => (string)$growlogDayImage->id,
-      'imageUrl' => (string)$growlogDayImage->link,
+      'imageUrl' => (string)$growlogDayImage->url,
       'fechaCreacion' => (string)$growlogDayImage->created_at,
 
     ];
   }
 
+
+
   public static function originalAttribute($index)
   {
     $attributes = [
         'id' => 'id',
-        'imageUrl' => 'rut',
+        'imageUrl' => 'link',
         'fechaCreacion' => 'created_at',
     ];
 
