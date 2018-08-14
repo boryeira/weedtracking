@@ -111,9 +111,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
     protected function transformData($datos, $transformer)
     {
 
-      dd($datos);
       $transformation = fractal($datos, new $transformer);
-
       return $transformation->toArray();
 
     }
@@ -133,13 +131,6 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
     }
 
-    protected function siiRequest($rut)
-    {
-      $cliente = new \GuzzleHttp\Client();
-      $request = $cliente->get('https://siichile.herokuapp.com/consulta?rut='.$rut);
-      $response = $request->getBody()->getContents();
-      $company = json_decode($response, true);
-      return $company;
-    }
+
 
   }
