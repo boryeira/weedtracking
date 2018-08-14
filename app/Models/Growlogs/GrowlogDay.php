@@ -21,4 +21,8 @@ class GrowlogDay extends Model
   {
       return $this->belongsTo('App\Models\Growlogs\Growlog');
   }
+  public function images()
+  {
+      return $this->hasMany('App\Models\Growlogs\GrowlogDayImage');
+  }
 }

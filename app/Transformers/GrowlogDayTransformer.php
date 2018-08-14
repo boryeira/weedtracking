@@ -12,8 +12,17 @@ class GrowlogDayTransformer extends TransformerAbstract
   {
     return [
       'id' => (string)$growlogDay->id,
-      'dia' => (string)$growlogDay->date,
+      'fecha' => (string)$growlogDay->date,
       'fechaCreacion' => (string)$growlogDay->created_at,
+      'dia' => $growlogDay->stage_day,
+      'images' => [
+        'count' => count($growlogDay->images),
+        'links' => [
+          foreach ($growlogDay->images as $key => $image) {
+            $key 
+          }
+        ]
+      ],
     ];
   }
 

@@ -57,10 +57,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
     public function filtrarDatos(Collection $collection, $transformer)
     {
-      // dd(request()->query());
       foreach (request()->query() as $indexquery => $valuequery) {
         $attribute = $transformer::originalAttribute($indexquery);
-        // dd($attribute);
         if (isset($attribute, $valuequery)) {
           $collection = $collection->where($attribute, $valuequery);
         }
