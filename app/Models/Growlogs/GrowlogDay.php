@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class GrowlogDay extends Model
 {
+  public $transformer = GrowlogDayTransformer::Class;
   //boot al instanciar modelo
   public static function boot()
   {

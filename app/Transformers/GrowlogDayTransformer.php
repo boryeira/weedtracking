@@ -2,18 +2,18 @@
 
 namespace App\Transformers;
 
-use App\Models\Growlogs\GrowlogDayImage;
+use App\Models\Growlogs\GrowlogDay;
 use League\Fractal\TransformerAbstract;
 
-class GrowlogDayImageTransformer extends TransformerAbstract
+class GrowlogDayTransformer extends TransformerAbstract
 {
 
-  public function transform(GrowlogDayImage $growlogDayImage)
+  public function transform(GrowlogDay $growlogDay)
   {
     return [
-      'id' => (string)$growlogDayImage->id,
-      'imageUrl' => (string)$growlogDayImage->link,
-      'fechaCreacion' => (string)$growlogDayImage->created_at,
+      'id' => (string)$growlogDay->id,
+      'dia' => (string)$growlogDay->date,
+      'fechaCreacion' => (string)$growlogDay->created_at,
     ];
   }
 
@@ -21,7 +21,7 @@ class GrowlogDayImageTransformer extends TransformerAbstract
   {
     $attributes = [
         'id' => 'id',
-        'imageUrl' => 'rut',
+        'dia' => 'date',
         'fechaCreacion' => 'created_at',
     ];
 

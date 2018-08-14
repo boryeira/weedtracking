@@ -19,11 +19,16 @@ class Growlog extends Model
 
   public function days()
   {
-      return $this->hasMany('App\Models\Growlogs\GrowlogDay');
+      return $this->hasMany('App\Models\Growlogs\GrowlogDay', 'growlog_id');
   }
 
   public function stages()
   {
       return $this->belongsToMany('App\Models\Stage', 'growlog_stage');
+  }
+
+  public function images()
+  {
+      return $this->hasManyThrough('App\Models\Growlogs\GrowlogDayImage', 'App\Models\Growlogs\GrowlogDay', 'growlog_id','growlog_day_id','id','id');
   }
 }
