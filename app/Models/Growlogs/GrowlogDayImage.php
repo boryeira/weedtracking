@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Growlogs;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Transformers\GrowlogDayImageTransformer;

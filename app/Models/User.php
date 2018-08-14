@@ -29,6 +29,6 @@ class User extends Authenticatable
 
     public function growlogs()
     {
-        return $this->hasMany('App\Models\Growlog');
+        return $this->hasMany('App\Models\Growlogs\Growlog');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GrowlogDay;
+use App\Models\Growlogs\GrowlogDay;
 use Illuminate\Http\Request;
 
 class GrowlogDayController extends Controller

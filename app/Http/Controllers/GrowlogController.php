@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Growlog;
+use App\Models\Growlogs\Growlog;
 use Illuminate\Http\Request;
 
 class GrowlogController extends Controller

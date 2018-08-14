@@ -8,6 +8,6 @@ class Stage extends Model
 {
   public function growlogs()
   {
-      return $this->belongsToMany('App\Models\Growlog', 'growlog_stage');
+      return $this->belongsToMany('App\Models\Growlogs\Growlog', 'growlog_stage');
   }
 }

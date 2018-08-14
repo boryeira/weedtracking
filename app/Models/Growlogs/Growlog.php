@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Growlogs;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,7 +19,7 @@ class Growlog extends Model
 
   public function days()
   {
-      return $this->hasMany('App\Models\GrowlogDay');
+      return $this->hasMany('App\Models\Growlogs\GrowlogDay');
   }
 
   public function stages()

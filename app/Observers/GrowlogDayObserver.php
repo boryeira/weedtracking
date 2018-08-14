@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\GrowlogDay;
+use App\Models\Growlogs\GrowlogDay;
 
 class GrowlogDayObserver
 {
