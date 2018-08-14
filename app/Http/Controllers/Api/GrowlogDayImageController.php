@@ -20,7 +20,7 @@ class GrowlogDayImageController extends ApiController
     // return response()->json(['data' => $companies]);
   }
 
-  public function show(GrowlogDay $growlog, GrowlogDayImage $image)
+  public function show(Growlog $growlog, GrowlogDayImage $image)
   {
     return $this->showOne($image, 200);
   }

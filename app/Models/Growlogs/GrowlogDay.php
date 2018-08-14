@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Models\Growlogs;
-use App\Observers\GrowlogDayObserver;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Transformers\GrowlogDayTransformer;
+use App\Observers\GrowlogDayObserver;
+
 
 class GrowlogDay extends Model
 {
