@@ -27,6 +27,12 @@ class GrowlogDayTransformer extends TransformerAbstract
         'count' => count($growlogDay->texts),
         'links' => $growlogDay->texts->toArray(),
       ],
+      'links' => [
+        [
+          'rel' => 'self',
+          'href' => route('days.show',['growlog' => $growlogDay->growlog->id , 'day' =>$growlogDay->id] ),
+        ],
+      ],
     ];
   }
 

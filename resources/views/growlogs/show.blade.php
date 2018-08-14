@@ -1,21 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-      <p>
-        {{$growlog->name}}
-      </p>
-      <div id='calendar'></div>
+      <div class="col-4">
+        <p>
+          {{$growlog->name}}
+        </p>
+      </div>
+      <div class="col-8">
+        <div id='calendar'></div>
+      </div>
+
+
     </div>
 </div>
 @endsection
 
 @section('css')
+    {{-- fulLcalendar --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet">
 @endsection
 
 @section('script')
+
+    {{-- fullcalendar --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js" defer></script>
     <script>
       $(document).ready(function() {
@@ -31,15 +40,17 @@
                   console.log(doc.data[u].start);
                   events.push({
                      title: doc.data[u].id,
-                     start: doc.data[u].start // will be parsed
+                     start: doc.data[u].start, // will be parsed
+                     url: doc.data[u].links[0].href,
                    });
 
                 });
                 callback(events);
               },
               error: function (xhr, ajaxOptions, thrownError) {
-                alert(xhr.status);
-                alert(thrownError);
+                console.log(xhr.status);
+                console.log(thrownError);
+                alert('error al traer la informacion');
               },
             });
           }
