@@ -14,6 +14,7 @@ class GrowlogDayController extends ApiController
   public function index(Growlog $growlog)
   {
     $day = $growlog->days;
+
     return $this->showAll($day,200);
   }
 

@@ -44,7 +44,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
     }
 
-    //Función pública pque regresa toda una colección
+    //Función pública pque regresa toda una colección transformada en evento
     protected function showAllFullcalendar(Collection $collection, $code = 200)
     {
       if ($collection->isEmpty()) {

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row">
       <p>
         {{$growlog->name}}
       </p>
@@ -20,21 +20,29 @@
     <script>
       $(document).ready(function() {
         $('#calendar').fullCalendar({
-          events: [
-            @foreach ($growlog->days as $day)
-            {
-              title: '{!!$day->date!!}',
-              start: '{!!$day->date!!}',
-              imageurl: '/img/plant.png',
-            },
-            @endforeach
+          events: function(start, end, timezone, callback) {
+            $.ajax({
+              url: '{!! url('api/growlogs/'.$growlog->id.'/days') !!}',
+              type: 'GET',
+              dataType: 'json',
+              success: function(doc) {
+                var events = [];
+                $(doc.data).each(function(u) {
+                  console.log(doc.data[u].start);
+                  events.push({
+                     title: doc.data[u].id,
+                     start: doc.data[u].start // will be parsed
+                   });
 
-           ],
-           eventRender: function(event, eventElement) {
-              if (event.imageurl) {
-                  eventElement.find("div.fc-content").prepend("<div'><img src='" + event.imageurl +"' width='100'></div>");
-              }
-           },
+                });
+                callback(events);
+              },
+              error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+              },
+            });
+          }
         })
       });
     </script>
