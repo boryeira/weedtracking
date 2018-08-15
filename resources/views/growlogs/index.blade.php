@@ -13,7 +13,7 @@
                       <th>nombre</th>
                     </thead>
                     <tbody>
-                      @foreach (App\Models\Growlog::all() as $growlog)
+                      @foreach (App\Models\Growlogs\Growlog::all() as $growlog)
                       <tr>
                           <td>
                             <a href="{{url('/growlogs/'.$growlog->id)}}">{{$growlog->name}}</a>
