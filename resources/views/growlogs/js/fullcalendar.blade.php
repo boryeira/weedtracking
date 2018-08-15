@@ -3,6 +3,8 @@
 <script>
   $(document).ready(function() {
     $('#calendar').fullCalendar({
+
+
       eventSources: [
         //forma porfect ajax
         // { events: function(start, end, timezone, callback) {
@@ -50,6 +52,7 @@
         }]},
 
       ]
-    })
+    });
+    $('#calendar').fullCalendar('gotoDate' , moment("{!!$growlog->days->first()->date!!}"));
   });
 </script>
