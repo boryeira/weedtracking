@@ -3,6 +3,7 @@
 namespace App\Models\Growlogs;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Observers\GrowlogObserver;
 
 class Growlog extends Model
 {
@@ -11,6 +12,13 @@ class Growlog extends Model
   ];
 
   protected $dates = ['created_at' ];
+
+  //boot al instanciar modelo
+  public static function boot()
+  {
+    //observador del modelo
+    Growlog::observe(GrowlogObserver::class);
+  }
 
   public function user()
   {

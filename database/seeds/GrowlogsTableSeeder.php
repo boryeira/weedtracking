@@ -13,6 +13,7 @@ class GrowlogsTableSeeder extends Seeder
     public function run()
     {
       factory(App\Models\Growlogs\Growlog::class, 60)->create()->each(function ($u) {
+        // $u->stages()->sync([1 => ['stage_start' => true],2,3,4]);
         factory(App\Models\Growlogs\GrowlogDay::class,random_int(10,40))->create([
             'growlog_id' => $u->id,
          ])->each(function ($u){
