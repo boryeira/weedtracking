@@ -22,4 +22,12 @@ class GrowlogDayController extends ApiController
   {
     return $this->showOne($day,200);
   }
+
+  public function update(Request $request, Growlog $growlog, GrowlogDay $day)
+  {
+    $day->date = $request->date;
+    $day->save();
+  //  return  $request->date;
+    return 'listo';
+  }
 }

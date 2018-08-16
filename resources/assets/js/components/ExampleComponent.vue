@@ -6,7 +6,7 @@
                     <div class="card-header"></div>
 
                     <div class="card-body">
-                        I'm an example componeeefwent. sir erteiii!
+                      
                     </div>
                 </div>
             </div>

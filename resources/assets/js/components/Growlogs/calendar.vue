@@ -6,7 +6,7 @@
                     <div class="card-header"></div>
 
                     <div class="card-body">
-                        soy un cakendario
+{{message}}
                     </div>
                 </div>
             </div>
@@ -18,6 +18,7 @@
     export default {
         mounted() {
             console.log('Component mounted 2222.')
-        }
+        },
+        props : ['message'],
     }
 </script>
