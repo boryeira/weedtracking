@@ -13903,16 +13903,28 @@ window.Vue = __webpack_require__(36);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 Vue.component('example', __webpack_require__(39));
+Vue.prototype.$http = axios;
 
 var message = {};
 var app = new Vue({
   el: '#app',
-  data: {
-    message: 'Hello World!22222'
+  data: function data() {
+    return {
+      message: 'Hello World!',
+      info: null
+    };
   },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('http://weedtracking.test/api/growlogs/1/days/24').then(function (response) {
+      return _this.info = response;
+    });
+  },
+
   methods: {
     clickedButton: function clickedButton() {
-      this.message = this.$ref;
+      this.message = 'hola';
     }
   }
 
@@ -47365,13 +47377,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
         console.log('Component mounted 2222.');
     },
 
-    props: ['message']
+    props: ['message', 'info']
 });
 
 /***/ }),
@@ -47389,7 +47402,7 @@ var render = function() {
           _c("div", { staticClass: "card-header" }),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
-            _vm._v("\n" + _vm._s(_vm.message) + "\n                    ")
+            _vm._v("\n" + _vm._s(_vm.message) + "\n\n                    ")
           ])
         ])
       ])

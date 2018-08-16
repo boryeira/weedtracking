@@ -7,6 +7,7 @@
 
                     <div class="card-body">
 {{message}}
+
                     </div>
                 </div>
             </div>
@@ -19,6 +20,6 @@
         mounted() {
             console.log('Component mounted 2222.')
         },
-        props : ['message'],
+        props : ['message','info'],
     }
 </script>

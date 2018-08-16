@@ -17,7 +17,7 @@
           <div class="card-body">
 
             <example v-bind:message="message"></example>
-            @{{message}}
+            @{{info}}
               <div id="botonmagico" v-on:click="clickedButton" data-id="-">Greet</div>
           </div>
         </div>

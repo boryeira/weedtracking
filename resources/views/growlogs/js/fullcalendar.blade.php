@@ -95,6 +95,6 @@
 
     //fecha inicio
     $('#calendar').fullCalendar('gotoDate' , moment("{!!$growlog->days->first()->date!!}"));
-    app.$forceUpdate();
+
   });
 </script>

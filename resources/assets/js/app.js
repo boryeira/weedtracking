@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 
+
 window.Vue = require('vue');
 
 /**
@@ -15,18 +16,28 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
   Vue.component('example', require('./components/Growlogs/calendar.vue'));
+  Vue.prototype.$http = axios;
+
 
 const message = {}
 const app = new Vue({
     el: '#app',
-    data: {
-  		message: 'Hello World!22222'
-  	},
+    data () {
+      return {
+        message: 'Hello World!',
+        info: null,
+      }
+    },
+    mounted () {
+        axios
+          .get('http://weedtracking.test/api/growlogs/1/days/24')
+          .then(response => (this.info = response))
+    },
   	methods: {
   		clickedButton: function() {
-        this.message = this.$ref;
+        this.message = 'hola';
 
-  		}
+  		},
   	}
 
 });
