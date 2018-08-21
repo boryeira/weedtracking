@@ -26,9 +26,12 @@
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="{{ asset('js/moment.min.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/moment.min.js') }}" defer></script>
+
     @yield('script')
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
 
 </body>
 </html>

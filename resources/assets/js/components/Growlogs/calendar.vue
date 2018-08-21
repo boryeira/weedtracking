@@ -6,7 +6,11 @@
                     <div class="card-header"></div>
 
                     <div class="card-body">
-{{message}}
+
+                      <div>
+                        growlog id: {{info['id']}}
+                      </div>
+
 
                     </div>
                 </div>
@@ -20,6 +24,6 @@
         mounted() {
             console.log('Component mounted 2222.')
         },
-        props : ['message','info'],
+        props : ['info'],
     }
 </script>

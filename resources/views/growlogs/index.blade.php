@@ -8,7 +8,7 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                  <table class=" table table-bordered table-hove display">
+                  {{-- <table class=" table table-bordered table-hove display">
                     <thead>
                       <th>nombre</th>
                     </thead>
@@ -21,7 +21,9 @@
                       </tr>
                       @endforeach
                     </tbody>
-                  </table>
+                  </table> --}}
+                  <indexito></indexito>
+
                 </div>
             </div>
         </div>

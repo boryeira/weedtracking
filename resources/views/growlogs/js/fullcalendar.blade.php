@@ -54,6 +54,8 @@
 
       ],
       editable: true,
+      selectable: true,
+      editable: true,
       eventDrop: function(event, delta, revertFunc) {
         $.ajax({
             method: 'POST',
@@ -77,11 +79,14 @@
         $('#growlog-add').show();
       },
       eventClick: function( event, jsEvent, view) {
+
+
         $('.card.alternable').hide();
         $('#growlog-show').show();
+        $('#botonmagico').prop.click();
       },
       eventRender: function(event, element) {
-        element.find(".fc-title").prepend("<example v-bind:message=\"message\"></example>");
+        element.find(".fc-title").prepend('<div class="btn btn-success botonmagico" ref="'+event.title+'" > Greet</div>');
       },
     });
     //acciones
@@ -95,6 +100,7 @@
 
     //fecha inicio
     $('#calendar').fullCalendar('gotoDate' , moment("{!!$growlog->days->first()->date!!}"));
+
 
   });
 </script>
