@@ -4,8 +4,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+          <div class="ibox">
+            <div class="ibox-body">
+
+            </div>
+          </div>
           <div class="card">
             <div class="card-body">
+
               <growlogday v-bind:growlog="{{$growlog->id}}" ></growlogday>
 
             </div>
