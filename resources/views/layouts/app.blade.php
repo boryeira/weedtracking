@@ -15,9 +15,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
     @yield('css')
 </head>
 <body>
+
     <div id="app">
         <main class="py-4">
             @yield('content')

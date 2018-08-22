@@ -47565,7 +47565,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 Vue.prototype.$http = axios;
@@ -47586,6 +47585,7 @@ Vue.prototype.$http = axios;
 
   },
   methods: {
+    //scroll infinito con paginacion de laravel
     infiniteHandler: function infiniteHandler($state) {
       var _this = this;
 
@@ -47596,19 +47596,10 @@ Vue.prototype.$http = axios;
         axios.get('/api/growlogs/' + _this.growlog + '/days?page=' + _this.page).then(function (response) {
           console.log('entre');
           console.log('pagina:' + _this.page);
-          // var events = [];
+
           var data = response.data.data;
           var pagination = response.data.meta.pagination;
-
           _this.days = _this.days.concat(response.data.data);
-
-          // data.forEach(function(u) {
-          //   console.log(u.id);
-          //   vm.days.push({
-          //      title: u.id,
-          //      start: u.start, // will be parsed
-          //    });
-          // });
           $state.loaded();
         });
         _this.page = _this.page + 1;
@@ -47634,35 +47625,26 @@ var render = function() {
     [
       _vm._v("\n  " + _vm._s(_vm.growlog) + "\n  "),
       _vm._l(_vm.days, function(day) {
-        return _c(
-          "div",
-          [
+        return _c("div", [
+          _c(
+            "div",
+            { staticClass: "row" },
             _vm._l(day.images.links, function(img) {
-              return _c("div", { staticClass: "image" }, [
-                _vm._v("\n      " + _vm._s(img.url) + "\n    ")
+              return _c("div", { staticClass: "col-3" }, [
+                _c("img", { attrs: { width: "100%", src: img.url } })
               ])
-            }),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(
-              "\n    Line:\n    " +
-                _vm._s(day.title) +
-                "\n    start\n    " +
-                _vm._s(day.start) +
-                "\n    "
-            ),
-            _c("br"),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("br")
-          ],
-          2
-        )
+            })
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(
+            "\n    Line:\n    " +
+              _vm._s(day.title) +
+              "\n    start\n    " +
+              _vm._s(day.start) +
+              "\n\n\n\n  "
+          )
+        ])
       }),
       _vm._v(" "),
       _c("infinite-loading", {
