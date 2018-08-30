@@ -33,7 +33,8 @@
 
     @yield('script')
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
-
+    {{-- alertas --}}
+    @include('layouts.alert')
 
 </body>
 </html>

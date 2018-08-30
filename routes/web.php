@@ -21,4 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/growlogs', 'GrowlogController'); //CRUDS growlog
 Route::resource('/growlogs/{growlog}/days', 'GrowlogDayController'); //CRUDS growlog days
+
+Route::put('/growlogs/{growlog}/stages', 'GrowlogController@stages'); //actualizar  estapas
 //

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Growlogs\Growlog;
+use App\Http\Requests\StageRequest;
 use Illuminate\Http\Request;
 
 class GrowlogController extends Controller
@@ -81,5 +82,9 @@ class GrowlogController extends Controller
     public function destroy(Growlog $growlog)
     {
         //
+    }
+    public function stages(StageRequest $request, Growlog $growlog)
+    {
+      dd($request->all());
     }
 }
