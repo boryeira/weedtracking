@@ -12,9 +12,9 @@ class StagesTableSeeder extends Seeder
      */
     public function run()
     {
-      Stage::create(['name' => 'Germinacion']);
-      Stage::create(['name' => 'Vegetativo']);
-      Stage::create(['name' => 'Floracion']);
-      Stage::create(['name' => 'Secado']);
+      Stage::create(['name' => 'Germinacion','weight' => 1]);
+      Stage::create(['name' => 'Vegetativo','weight' => 2]);
+      Stage::create(['name' => 'Floracion','weight' => 3]);
+      Stage::create(['name' => 'Secado','weight' => 4]);
     }
 }

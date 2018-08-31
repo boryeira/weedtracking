@@ -31,9 +31,9 @@ class Growlog extends Model
                   ->orderBy('date', 'asc');
   }
 
-  public function stages()
+  public function growlogStages()
   {
-      return $this->belongsToMany('App\Models\Stage', 'growlog_stage');
+      return $this->hasMany('App\Models\Growlogs\GrowlogStage', 'growlog_id');
   }
 
   public function images()

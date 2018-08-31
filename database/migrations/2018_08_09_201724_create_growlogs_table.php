@@ -23,7 +23,7 @@ class CreateGrowlogsTable extends Migration
             $table->timestamps();
         });
         //Etapas del ciclo de cultivo
-        Schema::create('growlog_stage', function (Blueprint $table) {
+        Schema::create('growlog_stages', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('growlog_id');
             $table->unsignedInteger('stage_id');
@@ -40,6 +40,7 @@ class CreateGrowlogsTable extends Migration
         Schema::create('stages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->unsignedInteger('weight');
             $table->timestamps();
 
 
@@ -55,7 +56,7 @@ class CreateGrowlogsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('growlogs');
-        Schema::dropIfExists('growlog_stage');
+        Schema::dropIfExists('growlog_stages');
         Schema::dropIfExists('stages');
     }
 }

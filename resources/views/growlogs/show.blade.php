@@ -6,15 +6,16 @@
         <div class="col-md-12">
           <div class="ibox">
             <div class="ibox-body">
-              {{Form::open(['action' => ['GrowlogController@stages',$growlog->id], 'method' => 'PUT'])}}
-              @foreach (App\Models\Stage::all() as $stage)
+
+              @foreach ($growlog->growlogStages as $growlogstage)
+              {{Form::open(['route' => ['growlogstages.update',$growlog->id,$growlogstage->id], 'method' => 'PUT'])}}
                 <div class="form-group">
-                  <label>{{$stage->name}}</label>
-                  <input type="date" class="form-control" name="{{$stage->id}}" />
+                  <label>{{$growlogstage->stage->name}}</label>
+                  <input type="date" class="form-control" name="date" value="{{$growlogstage->stage_start}}" />
                 </div>
-              @endforeach
               <button type="submit">enviar</button>
               {{Form::close()}}
+              @endforeach
             </div>
           </div>
           <div class="card">
