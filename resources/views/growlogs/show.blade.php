@@ -6,6 +6,7 @@
         <div class="col-md-12">
           <div class="ibox">
             <div class="ibox-body">
+              {{Session::get('warning')}}
 
               @foreach ($growlog->growlogStages as $growlogstage)
               {{Form::open(['route' => ['growlogstages.update',$growlog->id,$growlogstage->id], 'method' => 'PUT'])}}

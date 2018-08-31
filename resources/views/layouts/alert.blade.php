@@ -1,11 +1,10 @@
 <script src="{{ asset('js/toastr.min.js') }}"></script>
 {{-- alertas success --}}
 @if(Session::has('success'))
-  <script>
+  <script defer>
   $(function ()
   {
-    window.onload = function()
-    {
+
       toastr.options =
       {
         "closeButton": true,
@@ -17,7 +16,7 @@
         "onclick": null,
         "showDuration": "300",
         "hideDuration": "5000",
-        "timeOut": "3000",
+        "timeOut": "5000",
         "extendedTimeOut": "1000",
         "showEasing": "swing",
         "hideEasing": "linear",
@@ -25,7 +24,7 @@
         "hideMethod": "fadeOut"
       }
       toastr.success("{!! Session::get('success') !!}");
-    };
+
   });
   </script>
 @endif
@@ -33,23 +32,21 @@
 
 {{-- alerta warning --}}
 @if(Session::has('warning'))
-  <script>
+  <script defer>
   $(function ()
   {
-    window.onload = function()
-    {
       toastr.options =
       {
         "closeButton": true,
         "debug": false,
         "newestOnTop": false,
-        "progressBar": false,
-        "positionClass": "toast-bottom-right",
+        "progressBar": true,
+        "positionClass": "toast-top-full-width",
         "preventDuplicates": false,
         "onclick": null,
         "showDuration": "300",
         "hideDuration": "5000",
-        "timeOut": "3000",
+        "timeOut": "5000",
         "extendedTimeOut": "500",
         "showEasing": "swing",
         "hideEasing": "linear",
@@ -57,7 +54,7 @@
         "hideMethod": "fadeOut"
       }
       toastr.warning("{!! Session::get('warning') !!}");
-    };
+
   });
   </script>
 @endif
@@ -98,11 +95,10 @@
 
 {{-- errores --}}
 @if(count($errors->all())!=0)
-  <script>
+  <script defer>
   $(function ()
   {
-    window.onload = function()
-    {
+
       toastr.options =
       {
         "closeButton": true,
@@ -124,7 +120,7 @@
       @foreach($errors->all() as $error)
       toastr.warning("{!! $error !!}");
       @endforeach
-    };
+
   });
   </script>
 

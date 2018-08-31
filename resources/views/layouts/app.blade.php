@@ -16,6 +16,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
     @yield('css')
 </head>
 <body>
@@ -27,9 +28,11 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
     <script src="{{ asset('js/moment.min.js') }}" defer></script>
+
 
     @yield('script')
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
