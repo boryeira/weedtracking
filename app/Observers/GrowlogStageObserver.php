@@ -2,11 +2,13 @@
 
 namespace App\Observers;
 use App\Models\Growlogs\GrowlogStage;
+use App\Models\Growlogs\GrowlogDay;
 use Carbon\Carbon;
 use Session;
 
 class GrowlogStageObserver
 {
+
       public function updating(GrowlogStage $growlogstage){
 
         //VERIFICACION QUE LA ETAPA A ACTUALIZAR CUMPLA LAS REGLAS
@@ -45,7 +47,44 @@ class GrowlogStageObserver
         session::flash('success','todo bien');
 
       }
+
+
       public function updated(GrowlogStage $growlogstage){
+
+        $growlog =$growlogstage->growlog;
+        $stage_start = new Carbon($growlogstage->stage_start);
+        $prev = $growlogstage->prevStage();
+        if($prev!=null){
+          $prev->stage_end = $stage_start->subDays(1);
+          $prev::flushEventListeners();
+          $prev->save();
+        }
+
+        foreach ($growlog->growlogStages as $growlogStageIn) {
+          $start = $growlogStageIn->stage_start;
+          $end = $growlogStageIn->stage_end ?? today();
+          if($start!=null){
+            $growdays = $growlog->days()->where('date','>=',$start)->where('date','<=',$end)->get();
+            foreach ($growdays as $day) {
+
+              $day->stage_id = $growlogStageIn->stage_id;
+              $stages_start = new Carbon($start);
+              $date = new Carbon($day->date);
+              $dif = $stages_start->diffInDays($date)+1;
+              $day->stage_day = $dif;
+              $day->save();
+            }
+          }
+
+
+        }
+
+
+
+
+
+
+
 
       }
 }

@@ -21,7 +21,14 @@ window.Vue = require('vue');
   Vue.component('example', require('./components/Growlogs/calendar.vue'));
   Vue.component('growlogday', require('./components/Growlogs/growlogday.vue'));
   Vue.component('InfiniteLoading', require('vue-infinite-loading'));
+
   Vue.prototype.$http = axios;
+
+  import BootstrapVue from 'bootstrap-vue';
+  import 'bootstrap/dist/css/bootstrap.css';
+  import 'bootstrap-vue/dist/bootstrap-vue.css';
+
+  Vue.use(BootstrapVue);
 
 
 var app = new Vue({
@@ -65,7 +72,7 @@ var app = new Vue({
 
   	methods: {
   		clickedButton: function() {
-        console.log('wiiiiiiiiiiiiiiii');
+
   		},
       // fetchData() {
       //   this.events =  axios
