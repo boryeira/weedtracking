@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::resource('growlogs/{growlog}/images', 'Api\GrowlogDayImageController');
-Route::resource('growlogs/{growlog}/days', 'Api\GrowlogDayController');
+Route::name('api.')->group(function (){
+  Route::resource('growlogs', 'Api\GrowlogController');
+  Route::resource('growlogs/{growlog}/images', 'Api\GrowlogDayImageController');
+  Route::resource('growlogs/{growlog}/days', 'Api\GrowlogDayController');
+});

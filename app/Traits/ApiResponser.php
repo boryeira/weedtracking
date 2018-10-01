@@ -112,7 +112,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
       $page = LengthAwarePaginator::resolveCurrentPage();
 
-      $perPage = 3;
+      $perPage = 6;
 
       if (request()->has('per_page')) {
         $perPage = (int)request()->per_page;

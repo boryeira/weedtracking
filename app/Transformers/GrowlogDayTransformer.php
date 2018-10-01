@@ -28,10 +28,14 @@ class GrowlogDayTransformer extends TransformerAbstract
         'links' => $growlogDay->texts->toArray(),
       ],
       'links' => [
-        [
-          'rel' => 'self',
-          'href' => route('days.show',['growlog' => $growlogDay->growlog->id , 'day' =>$growlogDay->id] ),
-        ],
+
+          'self' => [
+            'href' => route('api.days.show',['growlog' => $growlogDay->growlog->id , 'day' =>$growlogDay->id] ),
+          ],
+          'growlog' => [
+            'href' => route('api.growlogs.show',['growlog' => $growlogDay->growlog->id ] ),
+          ],
+
       ],
     ];
   }

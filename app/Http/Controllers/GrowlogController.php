@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Growlogs\Growlog;
+use App\Models\Growlogs\GrowlogDay;
 use App\Http\Requests\StageRequest;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class GrowlogController extends Controller
      */
     public function index()
     {
-        return view('growlogs.index');
+        $growlogDays =  GrowlogDay::all();
+        return view('growlogs.index')->with('growlogDays',$growlogDays);
     }
 
     /**
