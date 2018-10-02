@@ -3,8 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-
-          @foreach ($growlogDays as $day)
+      hola
+      <growlog></growlog>
+          {{-- @foreach ($growlogDays as $day)
             <div class="col-md-12">
             <div class="card mb-4">
               <div class="rel">
@@ -47,7 +48,7 @@
               </div>
             </div>
             </div>
-          @endforeach
+          @endforeach --}}
 
     </div>
 </div>

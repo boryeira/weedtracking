@@ -13,7 +13,7 @@ class GrowlogController extends ApiController
 {
   public function index()
   {
-    $growlog = Growlog::all();
+    $growlog = Growlog::orderBy('updated_at','desc')->get();
 
     return $this->showAll($growlog,200);
   }

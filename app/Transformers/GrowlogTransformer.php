@@ -34,10 +34,12 @@ class GrowlogTransformer extends TransformerAbstract
       'links' => [
 
         'self' => [
-          'href' => route('api.growlogs.show',['growlog' => $growlog->id] ),
+          'href' => route('growlogs.show',['growlog' => $growlog->id] ),
+          'api' => route('api.growlogs.show',['growlog' => $growlog->id] ),
         ],
         'days' => [
-          'href' => route('api.days.index',['growlog' => $growlog->id] ),
+          'href' => route('days.index',['growlog' => $growlog->id] ),
+          'api' => route('api.days.index',['growlog' => $growlog->id] ),
         ],
       ],
     ];
