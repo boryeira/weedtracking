@@ -15,17 +15,26 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/metisMenu.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/flickity.css') }}" rel="stylesheet">
     @yield('css')
-</head>
-<body>
 
-    <div id="app">
-        <main class="py-4">
+
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet" defer>
+</head>
+<body class="fixed-navbar">
+
+    <div id="app" class="page-wrapper">
+      @include('layouts.header')
+      @include('layouts.sidebar')
+      <div class="content-wrapper">
+          <!-- START PAGE CONTENT-->
+          <div class="page-content fade-in-up">
             @yield('content')
-        </main>
+          </div>
+      </div>
     </div>
 
     <!-- Scripts -->
@@ -33,8 +42,8 @@
     <script src="{{ asset('js/app.js') }}" ></script>
 
     <script src="{{ asset('js/moment.min.js') }}" defer></script>
+    <script src="{{ asset('js/metisMenu.min.js') }}" defer></script>
 
-  
 
 
 
@@ -42,6 +51,8 @@
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     {{-- alertas --}}
     @include('layouts.alert')
+
+    <script src="{{ asset('js/app.min.js') }}" defer></script>
 
 </body>
 </html>

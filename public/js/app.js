@@ -54246,6 +54246,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -54308,29 +54339,151 @@ var render = function() {
         return _c("b-col", { attrs: { sm: "12", md: "6", lg: "4" } }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "rel" }, [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: { src: growlog.images.links[0].url, alt: "image" }
-              })
+              _c(
+                "div",
+                {
+                  staticClass: "carousel slide",
+                  attrs: { id: "carousel_1", "data-ride": "carousel" }
+                },
+                [
+                  _c(
+                    "ol",
+                    {
+                      staticClass: "carousel-indicators",
+                      staticStyle: { top: "1.25rem", bottom: "auto" }
+                    },
+                    [
+                      _c("li", {
+                        staticClass: "active",
+                        attrs: {
+                          "data-target": "#carousel_1",
+                          "data-slide-to": "0"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("li", {
+                        attrs: {
+                          "data-target": "#carousel_1",
+                          "data-slide-to": "1"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("li", {
+                        attrs: {
+                          "data-target": "#carousel_1",
+                          "data-slide-to": "2"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "carousel-inner" }, [
+                    _c("div", { staticClass: "carousel-item active" }, [
+                      _c("img", {
+                        staticClass: "card-img-top",
+                        attrs: {
+                          src: growlog.images.links[0].url,
+                          alt: "image"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "carousel-item" }, [
+                      _c("img", {
+                        staticClass: "card-img-top",
+                        attrs: {
+                          src: growlog.images.links[0].url,
+                          alt: "image"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "carousel-item" }, [
+                      _c("img", {
+                        staticClass: "card-img-top",
+                        attrs: {
+                          src: growlog.images.links[0].url,
+                          alt: "image"
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-img-overlay" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "overlay-panel overlay-panel-bottom overlay-panel-dark flexbox"
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "d-inline-flex align-items-center" },
+                      [
+                        _c("a", [
+                          _c("img", {
+                            staticClass: "img-circle img-bordered mr-3",
+                            attrs: {
+                              src: growlog.images.links[0].url,
+                              alt: "image",
+                              width: "48"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c("h5", { staticClass: "m-0" }, [
+                            _c(
+                              "a",
+                              { attrs: { href: growlog.links.growlog.href } },
+                              [_vm._v(_vm._s(growlog.links.growlog.name))]
+                            )
+                          ]),
+                          _c("small", [
+                            _vm._v(
+                              _vm._s(growlog.etapa) +
+                                " día " +
+                                _vm._s(growlog.dia)
+                            )
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "d-inline-flex" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "pl-3 pr-3 text-center",
+                          staticStyle: {
+                            "border-right": "1px solid rgba(255,255,255,.5)"
+                          }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "la la-camera d-block font-26 mb-2"
+                          }),
+                          _vm._v("124")
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "pl-3 pr-3 text-center" }, [
+                        _c("i", {
+                          staticClass: "la la-users d-block font-26 mb-2"
+                        }),
+                        _vm._v("56")
+                      ])
+                    ])
+                  ]
+                )
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _c("h4", { staticClass: "card-title mb-2" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "text-primary",
-                    attrs: { href: growlog.links.growlog.href }
-                  },
-                  [_vm._v(_vm._s(growlog.links.growlog.name))]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text-muted mb-3" }, [
-                _vm._v(_vm._s(growlog.etapa) + " día " + _vm._s(growlog.dia))
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-light" }, [
+              _c("p", { staticClass: "content-maxed" }, [
                 _vm._v(_vm._s(growlog.texts.links[0].content))
               ])
             ])

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-      hola
+      <p></p>
       <growlog-days></growlog-days>
           {{-- @foreach ($growlogDays as $day)
             <div class="col-md-12">
