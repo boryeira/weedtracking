@@ -30,4 +30,8 @@ class GrowlogDay extends Model
   {
       return $this->hasMany('App\Models\Growlogs\GrowlogDayText');
   }
+  public function stage()
+  {
+      return $this->belongsTo('App\Models\Stage');
+  }
 }

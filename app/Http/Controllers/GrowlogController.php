@@ -85,8 +85,11 @@ class GrowlogController extends Controller
     {
         //
     }
+
     public function stages(StageRequest $request, Growlog $growlog)
     {
       dd($request->all());
     }
+
+
 }

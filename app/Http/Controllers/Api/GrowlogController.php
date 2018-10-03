@@ -22,5 +22,10 @@ class GrowlogController extends ApiController
   {
     return $this->showOne($growlog,200);
   }
+  public function days()
+  {
+      $growlogDays =  GrowlogDay::orderBy('updated_at','desc')->get();
+      return $this->showAll($growlogDays,200);
+  }
 
 }

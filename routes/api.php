@@ -18,6 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::name('api.')->group(function (){
   Route::resource('growlogs', 'Api\GrowlogController');
+
   Route::resource('growlogs/{growlog}/images', 'Api\GrowlogDayImageController');
   Route::resource('growlogs/{growlog}/days', 'Api\GrowlogDayController');
+  Route::get('growlogsdays', 'Api\GrowlogController@days')->name('growlogs.days');
 });

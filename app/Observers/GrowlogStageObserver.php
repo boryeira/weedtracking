@@ -72,6 +72,7 @@ class GrowlogStageObserver
               $date = new Carbon($day->date);
               $dif = $stages_start->diffInDays($date)+1;
               $day->stage_day = $dif;
+              $day->timestamps = false;
               $day->save();
             }
           }

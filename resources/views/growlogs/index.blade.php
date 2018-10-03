@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
       hola
-      <growlog></growlog>
+      <growlog-days></growlog-days>
           {{-- @foreach ($growlogDays as $day)
             <div class="col-md-12">
             <div class="card mb-4">

@@ -19,6 +19,7 @@ class GrowlogDayTransformer extends TransformerAbstract
 
       'fechaCreacion' => (string)$growlogDay->created_at,
       'dia' => $growlogDay->stage_day,
+      'etapa' => $growlogDay->stage->name ?? '' ,
       'images' => [
         'count' => count($growlogDay->images),
         'links' => $growlogDay->images->toArray(),
@@ -28,13 +29,15 @@ class GrowlogDayTransformer extends TransformerAbstract
         'links' => $growlogDay->texts->toArray(),
       ],
       'links' => [
-
-          'self' => [
-            'href' => route('api.days.show',['growlog' => $growlogDay->growlog->id , 'day' =>$growlogDay->id] ),
-          ],
-          'growlog' => [
-            'href' => route('api.growlogs.show',['growlog' => $growlogDay->growlog->id ] ),
-          ],
+        'self' => [
+          'href' => route('api.days.show',['growlog' => $growlogDay->growlog->id , 'day' =>$growlogDay->id] ),
+        ],
+        'growlog' => [
+          'name' => $growlogDay->growlog->name,
+          'description' => $growlogDay->growlog->description,
+          'api' => route('api.growlogs.show',['growlog' => $growlogDay->growlog->id ] ),
+          'href' => route('growlogs.show',['growlog' => $growlogDay->growlog->id ] ),
+        ],
 
       ],
     ];
