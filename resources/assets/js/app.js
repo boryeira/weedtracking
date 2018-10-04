@@ -41,7 +41,7 @@ var app = new Vue({
         message: 'Hello World!',
         info: null,
         info2: null,
-        events: null,
+        uploadImage: '/',
       }
     },
     methods:{

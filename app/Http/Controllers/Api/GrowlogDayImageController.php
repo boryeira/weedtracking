@@ -25,9 +25,11 @@ class GrowlogDayImageController extends ApiController
     return $this->showOne($image, 200);
   }
 
-  public function store(Growlog $growlog, GrowlogDayImage $image)
+  public function store()
   {
-    return $this->showOne($image, 200);
+    return response()->json([
+              'result' => 'wii',
+          ], 200);
   }
 
 }

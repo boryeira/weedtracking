@@ -10,7 +10,7 @@ import vUploader from 'v-uploader';
 const uploaderConfig = {
     // file uploader service url
     language: 'en',
-    uploadFileUrl: 'http://xxx/upload/publicFileUpload',
+    uploadFileUrl: 'http://weedtracking.test/growlogs/59/images',
     // file delete service url
     deleteFileUrl: 'http://xxx/upload/deleteUploadFile',
     // set the way to show upload message(upload fail message)

@@ -19,7 +19,9 @@
                   <p class="mt-4 mb-5">{{$growlog->description}}</p>
               </div>
           </div>
-          <add-media></add-media>
+
+
+
           <div class="ibox">
             <div class="ibox-body">
               {{Session::get('warning')}}
@@ -55,6 +57,40 @@
 
         </div>
     </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="add-media-modal" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {{Form::open(['route' => ['days.store',$growlog->id], 'method' => 'PUT', 'class' => 'dropzone'])}}
+            <input name="text" type="text" hidden  />
+            <div class="fallback">
+              <input name="file[]" type="file" multiple />
+
+            </div>
+
+            {{Form::close()}}
+            <div class="form-group">
+
+            </div>
+            <textarea class="form-control"></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 @endsection
 
 
@@ -66,7 +102,7 @@
     </button>
 
     <ul class="fab-menu">
-      <li><a class="btn btn-pink btn-icon-only" ><i class="fab-icon la la-camera"></i></a></li>
+      <li><button class="btn btn-pink btn-icon-only" data-toggle="modal" data-target="#add-media-modal"><i class="fab-icon la la-camera"></i></button></li>
     </ul>
   </div>
 @endsection

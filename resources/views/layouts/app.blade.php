@@ -23,13 +23,14 @@
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/metisMenu.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/flickity.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dropzone.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     @yield('css')
 
 
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" defer>
 </head>
-<body class="fixed-navbar">
+<body class="fixed-navbar has-animation sidebar-mini">
 
     <div id="app" class="page-wrapper">
       @include('layouts.header')
@@ -37,7 +38,7 @@
       <div class="content-wrapper">
           <!-- START PAGE CONTENT-->
           @yield('page-header')
-          <div class="page-content fade-in-up">
+          <div class="page-content ">
             @yield('content')
           </div>
           <footer class="page-footer">
@@ -52,7 +53,7 @@
         <div class="page-preloader">Loading</div>
     </div>
     <!-- END PAGA BACKDROPS-->
-    
+
     <!-- BEGIN ALERTS-->
     @include('layouts.alert')
     <!-- END ALERTS-->
@@ -62,6 +63,7 @@
 
     <script src="{{ asset('js/moment.min.js') }}" defer></script>
     <script src="{{ asset('js/metisMenu.min.js') }}" defer></script>
+    <script src="{{ asset('js/dropzone.js') }}" defer></script>
 
 
 
