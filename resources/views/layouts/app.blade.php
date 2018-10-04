@@ -15,10 +15,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/line-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/themify-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/metisMenu.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/flickity.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     @yield('css')
 
 
@@ -31,14 +36,28 @@
       @include('layouts.sidebar')
       <div class="content-wrapper">
           <!-- START PAGE CONTENT-->
+          @yield('page-header')
           <div class="page-content fade-in-up">
             @yield('content')
           </div>
+          <footer class="page-footer">
+            <div class="float" style="display: block;">@yield('fab')</div>
+          </footer>
       </div>
+
     </div>
+    <!-- BEGIN PAGA BACKDROPS-->
+    <div class="sidenav-backdrop backdrop"></div>
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
+    <!-- END PAGA BACKDROPS-->
+    
+    <!-- BEGIN ALERTS-->
+    @include('layouts.alert')
+    <!-- END ALERTS-->
 
     <!-- Scripts -->
-
     <script src="{{ asset('js/app.js') }}" ></script>
 
     <script src="{{ asset('js/moment.min.js') }}" defer></script>
@@ -50,9 +69,9 @@
     @yield('script')
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     {{-- alertas --}}
-    @include('layouts.alert')
 
-    <script src="{{ asset('js/app.min.js') }}" defer></script>
+
+    <script src="{{ asset('js/template.js') }}" defer></script>
 
 </body>
 </html>

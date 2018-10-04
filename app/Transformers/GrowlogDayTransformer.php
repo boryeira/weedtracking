@@ -18,8 +18,8 @@ class GrowlogDayTransformer extends TransformerAbstract
       'start' => (string)$growlogDay->date,
 
       'fechaCreacion' => (string)$growlogDay->created_at,
-      'dia' => $growlogDay->stage_day,
-      'etapa' => $growlogDay->stage->name ?? '' ,
+      'day' => $growlogDay->stage_day,
+      'stage' => $growlogDay->stage->name ?? '' ,
       'images' => [
         'count' => count($growlogDay->images),
         'links' => $growlogDay->images->toArray(),

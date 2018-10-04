@@ -20,7 +20,7 @@ class GrowlogTransformer extends TransformerAbstract
         'id' => (string)$growlogLastDay->id,
         'fecha' => (string)$growlogLastDay->date,
         'fechaCreacion' => (string)$growlogLastDay->created_at,
-        'dia' =>  (string)$growlogLastDay->stage_day,
+        'day' =>  (string)$growlogLastDay->stage_day,
         'images' => [
           'count' => count($growlogLastDay->images),
           'links' => $growlogLastDay->images->toArray(),

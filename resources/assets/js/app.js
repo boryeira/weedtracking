@@ -19,10 +19,11 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
   Vue.component('example', require('./components/Growlogs/calendar.vue'));
-  Vue.component('growlogday', require('./components/Growlogs/growlogday.vue'));
   Vue.component('growlog', require('./components/Growlogs/growlog.vue'));
   Vue.component('growlog-days', require('./components/Growlogs/growlog-days.vue'));
   Vue.component('InfiniteLoading', require('vue-infinite-loading'));
+  Vue.component('days-list', require('./components/Growlogs/days-list.vue'));
+  Vue.component('add-media', require('./components/Growlogs/add-media.vue'));
 
   Vue.prototype.$http = axios;
 
@@ -41,63 +42,12 @@ var app = new Vue({
         info: null,
         info2: null,
         events: null,
-        // eventSources: [
-        //   {
-        //     events: this.eventotest
-        //   },
-        //   {
-        //     events: function(start, end, timezone, callback) {
-        //       axios
-        //         .get('http://weedtracking.test/api/growlogs/1/days/')
-        //         .then(response => {
-        //                 var events = [];
-        //                 var array = response.data.data;
-        //
-        //
-        //                 array.forEach(function(u) {
-        //                 //  console.log(u.id);
-        //                   events.push({
-        //                      title: u.id,
-        //                      start: u.start, // will be parsed
-        //                    });
-        //
-        //                 });
-        //                 console.log(JSON.stringify(events));
-        //                 callback(JSON.stringify(events));
-        //               })
-        //       }
-        //
-        //     },
-        // ],
       }
     },
+    methods:{
+        //receive uploaded files info
+        //@type Array
 
-  	methods: {
-  		clickedButton: function() {
-
-  		},
-      // fetchData() {
-      //   this.events =  axios
-      //           .get('http://weedtracking.test/api/growlogs/1/days/')
-      //           .then(response => {
-      //                   var events = [];
-      //                   var array = response.data.data;
-      //
-      //
-      //                   array.forEach(function(u) {
-      //                   //  console.log(u.id);
-      //                     events.push({
-      //                        title: u.id,
-      //                        start: u.start, // will be parsed
-      //                      });
-      //
-      //                   });
-      //                   console.log(JSON.stringify(events));
-      //                   this.events = JSON.stringify(events);
-      //                   r
-      //                 })
-      // }
-
-  	}
+    }
 
 });

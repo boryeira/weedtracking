@@ -1,0 +1,25 @@
+/* custom */
+
+/* maxed text */
+.content-maxed {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:20px;
+	right:20px;
+}
+
+.btn-circle {
+  border-radius: 50px !important;
+}
+
+a {
+  text-decoration: none !important;
+}

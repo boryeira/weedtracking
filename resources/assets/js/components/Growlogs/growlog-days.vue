@@ -33,7 +33,7 @@
                                         <div>
                                             <h5 class="m-0">
                                                 <a :href="growlog.links.growlog.href">{{growlog.links.growlog.name}}</a>
-                                            </h5><small>{{growlog.etapa}} día {{growlog.dia}}</small></div>
+                                            </h5><small>{{growlog.stage}} día {{growlog.day}}</small></div>
                                     </div>
                                     <div class="d-inline-flex">
                                         <span class="pl-3 pr-3 text-center" style="border-right: 1px solid rgba(255,255,255,.5);"><i class="la la-camera d-block font-26 mb-2"></i>124</span>
