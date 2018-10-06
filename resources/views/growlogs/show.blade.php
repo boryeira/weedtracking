@@ -6,13 +6,11 @@
         <div class="col-md-4">
           <div class="card text-center has-cup card-air centered mb-4">
               <div class="card-cup bg-warning">
-
               </div>
               <div class="card-body">
 
                   <div class="card-avatar mb-4">
                       <img class="img-circle" src="{{url('img/plant.png')}}" alt="image">
-
                   </div>
                   <h4 class="card-title text-warning mb-1">{{$growlog->name}}</h4>
                   <div class="text-muted">Manager</div>
@@ -22,10 +20,10 @@
 
 
 
+
           <div class="ibox">
             <div class="ibox-body">
               {{Session::get('warning')}}
-
               @foreach ($growlog->growlogStages as $growlogstage)
               {{Form::open(['route' => ['growlogstages.update',$growlog->id,$growlogstage->id], 'method' => 'PUT'])}}
                 <div class="form-group">
@@ -40,21 +38,10 @@
         </div>
         <div class="col-md-8">
           <div class="ibox">
-
             <div class="ibox-body">
-
-
                 <days-list v-bind:growlog="{{$growlog->id}}" ></days-list>
-
-
-
-
-
             </div>
           </div>
-
-              {{-- <growlogday v-bind:growlog="{{$growlog->id}}" ></growlogday> --}}
-
         </div>
     </div>
 
@@ -62,28 +49,21 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
+            <h5 class="modal-title">Agregar Seguimiento</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            {{Form::open(['route' => ['days.store',$growlog->id], 'method' => 'PUT', 'class' => 'dropzone'])}}
-            <input name="text" type="text" hidden  />
-            <div class="fallback">
-              <input name="file[]" type="file" multiple />
 
-            </div>
-
-            {{Form::close()}}
             <div class="form-group">
-
+              <add-media url="{{route('days.store',$growlog->id)}}"></add-media>
             </div>
-            <textarea class="form-control"></textarea>
+
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" onClick="formSender()" >Save changes</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -102,7 +82,12 @@
     </button>
 
     <ul class="fab-menu">
-      <li><button class="btn btn-pink btn-icon-only" data-toggle="modal" data-target="#add-media-modal"><i class="fab-icon la la-camera"></i></button></li>
+      <li><button class="btn btn-pink btn-icon-only" data-toggle="modal" data-target="#add-media-modal" ><i class="fab-icon la la-camera"></i></button></li>
     </ul>
   </div>
+@endsection
+
+@section('script')
+
+
 @endsection

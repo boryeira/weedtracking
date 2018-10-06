@@ -38,7 +38,7 @@ class GrowlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          dd($request);
     }
 
     /**

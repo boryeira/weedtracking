@@ -18,6 +18,15 @@ class GrowlogDayController extends ApiController
     return $this->showAll($day,200);
   }
 
+  public function store(Request $request)
+  {
+
+    return response()->json([
+        'date' => $request->date,
+        'text' => $request->text,
+    ], 200);
+  }
+
   public function show(Growlog $growlog, GrowlogDay $day)
   {
     return $this->showOne($day,200);
@@ -30,4 +39,6 @@ class GrowlogDayController extends ApiController
   //  return  $request->date;
     return 'listo';
   }
+
+
 }
