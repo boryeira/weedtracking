@@ -9,8 +9,12 @@ use App\Observers\GrowlogDayObserver;
 
 class GrowlogDay extends Model
 {
+  protected $dates = [
+      'date'
+  ];
   //transformador para la api
   public $transformer = GrowlogDayTransformer::Class;
+
   //boot al instanciar modelo
   public static function boot()
   {

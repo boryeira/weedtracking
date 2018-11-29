@@ -42,7 +42,7 @@ Vue.prototype.$http = axios;
 
 export default {
   mounted() {
-      console.log('montado el componente growlog')
+      console.log('montado el componente growlog wii')
   },
   data() {
     return {
@@ -63,8 +63,10 @@ export default {
         let vm = this;
         const temp = [];
         const days = [];
+        console.log('pregunta');
         axios.get('/api/growlogs?page='+this.page)
              .then(response => {
+              console.log('respuesta');
                 var data = response.data.data;
                 var pagination = response.data.meta.pagination;
                 this.growlogs = this.growlogs.concat(response.data.data);

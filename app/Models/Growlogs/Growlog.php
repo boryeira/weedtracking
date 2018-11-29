@@ -12,7 +12,7 @@ class Growlog extends Model
       'name', 'user_id',
   ];
 
-  protected $dates = ['created_at' ];
+  protected $dates = ['date' ];
 
   public $transformer = GrowlogTransformer::Class;
 
@@ -31,7 +31,7 @@ class Growlog extends Model
   public function days()
   {
       return $this->hasMany('App\Models\Growlogs\GrowlogDay', 'growlog_id')
-                  ->orderBy('date', 'asc');
+                  ->orderBy('date', 'desc');
   }
 
   public function growlogStages()

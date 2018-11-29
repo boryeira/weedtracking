@@ -12,7 +12,7 @@ class GrowlogDayTransformer extends TransformerAbstract
   {
     return [
       'id' => (string)$growlogDay->id,
-      'fecha' => (string)$growlogDay->date,
+      'fecha' => (string)$growlogDay->date->format('d-m-Y'),
       //fullcalendar
       'title' => (string)$growlogDay->id,
       'start' => (string)$growlogDay->date,

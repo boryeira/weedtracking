@@ -14,16 +14,20 @@ class GrowlogDayController extends ApiController
   public function index(Growlog $growlog)
   {
     $day = $growlog->days;
-
     return $this->showAll($day,200);
   }
 
   public function store(Request $request)
   {
+    $growlogDay = GrowlogDay::firstOrCreate(['date' => $request->date]);
+
+
+
+    //Storage::put('.jpg', $contents);
 
     return response()->json([
-        'date' => $request->date,
-        'text' => $request->text,
+        'growlogDay' => $growlogDay->toArray(),
+      
     ], 200);
   }
 

@@ -13,6 +13,7 @@
                 Día {{day.day}}
               </h5>
               <p class="text-muted">{{day.stage}}</p>
+              <p class="text-muted">{{day.fecha}}</p>
 
             </div>
 
@@ -25,13 +26,15 @@
 
       <infinite-loading @distance="0" @infinite="infiniteHandler"></infinite-loading>
       <b-modal id="daymodal"  title="Seguimiento">
-        <h5 class="">Día {{clickday.day}} {{clickday.stage}}</h5>
+        <h5 class="">Día {{clickday.day}} {{clickday.stage}} {{clickday.fecha}}</h5>
+         <span></span>
         <b-row v-if ="clickday.images">
           <b-col  v-for ="img in clickday.images.links ">
             <img :src="img.url" alt="image" >
           </b-col>
         </b-row>
         <b-row v-if ="clickday.texts">
+
           <b-col sm="12" v-for ="text in clickday.texts.links ">
             <p>
               {{text.content}}
@@ -77,6 +80,7 @@ export default {
                 var data = response.data.data;
                 var pagination = response.data.meta.pagination;
                 this.days = this.days.concat(response.data.data);
+                console.log(this.days);
                 $state.loaded();
               });
               this.page = this.page + 1;

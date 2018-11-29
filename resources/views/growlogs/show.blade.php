@@ -48,6 +48,7 @@
     <div class="modal" tabindex="-1" role="dialog" id="add-media-modal" >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
+          {{Form::open(['route' => ['days.store',$growlog->id], 'method' => 'POST'])}}
           <div class="modal-header">
             <h5 class="modal-title">Agregar Seguimiento</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -63,9 +64,10 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onClick="formSender()" >Save changes</button>
+            <button type="submit" class="btn btn-primary"  >Save changes</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
+          {{Form::close()}}
         </div>
       </div>
     </div>

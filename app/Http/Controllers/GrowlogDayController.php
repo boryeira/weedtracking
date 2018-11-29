@@ -35,10 +35,11 @@ class GrowlogDayController extends Controller
      */
     public function store(Request $request)
     {
+      dd($request);
       //$nombre = $request->file('file')->getClientOriginalName();
-      return response()->json([
-          'respuesta' => 'wiipi ',
-      ], 200);
+      // return response()->json([
+      //     'respuesta' => 'wiipi ',
+      // ], 200);
     }
 
     /**
