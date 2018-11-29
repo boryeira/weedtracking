@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Growlogs;
 
+use App\Http\Controllers\Controller;
 use App\Models\Growlogs\GrowlogDay;
+use App\Models\Growlogs\Growlog;
 use Illuminate\Http\Request;
+use Session;
 
 class GrowlogDayController extends Controller
 {
@@ -14,7 +17,7 @@ class GrowlogDayController extends Controller
      */
     public function index()
     {
-        //
+        return 'entre';
     }
 
     /**
@@ -33,13 +36,24 @@ class GrowlogDayController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Growlog $growlog )
     {
-      dd($request);
-      //$nombre = $request->file('file')->getClientOriginalName();
-      // return response()->json([
-      //     'respuesta' => 'wiipi ',
-      // ], 200);
+      dd($request->date);
+        $growlogDay = new GrowlogDay;
+        $growlogDay->growlog_id = $growlog->id;
+        $growlogDay->date = $request->date;
+        if($growlogDay->save())
+        {
+          // foreach ( $request->file('images') as $img) {
+          //
+          // }
+          Session::flash('success', 'wiiii');
+          return  redirect('/growlogs/'.$growlog->id);
+
+        } else {
+          Session::flash('warning', 'seguimiento ya creado');
+          return  redirect('/growlogs/'.$growlog->id);
+        }
     }
 
     /**

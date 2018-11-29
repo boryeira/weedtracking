@@ -14,5 +14,11 @@ class GrowlogDayObserver
     }
   }
 
+  public function saved(GrowlogDay $growlogDay)
+  {
+
+
+  }
+
 
 }

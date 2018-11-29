@@ -4,7 +4,7 @@ namespace App\Models\Growlogs;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Transformers\GrowlogTransformer;
-use App\Observers\GrowlogObserver;
+
 
 class Growlog extends Model
 {
@@ -17,11 +17,11 @@ class Growlog extends Model
   public $transformer = GrowlogTransformer::Class;
 
   //boot al instanciar modelo
-  public static function boot()
-  {
-    //observador del modelo
-    Growlog::observe(GrowlogObserver::class);
-  }
+  // public static function boot()
+  // {
+  //   //observador del modelo
+  //
+  // }
 
   public function user()
   {

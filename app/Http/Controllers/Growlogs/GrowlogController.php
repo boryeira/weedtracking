@@ -1,23 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Growlogs;
 
+use App\Http\Controllers\Controller;
 use App\Models\Growlogs\Growlog;
-use App\Models\Growlogs\GrowlogStage;
+use App\Models\Growlogs\GrowlogDay;
 use App\Http\Requests\StageRequest;
 use Illuminate\Http\Request;
-use Redirect;
 
-class GrowlogStageController extends Controller
+class GrowlogController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Growlog $growlog)
+    public function index()
     {
-      return 'hola: ';
+        $growlogDays =  GrowlogDay::all();
+        return view('growlogs.index')->with('growlogDays',$growlogDays);
     }
 
     /**
@@ -38,7 +39,9 @@ class GrowlogStageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //  dd($request);
+
+          //request()->file('image')->storeAs('public/files/vouchers/', $bill->id.'_'.$request->voucher_number.'.pdf');
     }
 
     /**
@@ -47,9 +50,9 @@ class GrowlogStageController extends Controller
      * @param  \App\Models\Growlog  $growlog
      * @return \Illuminate\Http\Response
      */
-    public function show(Growlog $growlog, GrowlogStage $growlogstage )
+    public function show(Growlog $growlog)
     {
-      return 'hola: '.$growlog.' chao: '.$growlogstage;
+      return view('growlogs.show')->with('growlog',$growlog);
     }
 
     /**
@@ -58,7 +61,7 @@ class GrowlogStageController extends Controller
      * @param  \App\Models\Growlog  $growlog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Growlog $growlog, GrowlogStage $growlogstage)
+    public function edit(Growlog $growlog)
     {
         //
     }
@@ -70,10 +73,9 @@ class GrowlogStageController extends Controller
      * @param  \App\Models\Growlog  $growlog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Growlog $growlog, GrowlogStage $growlogstage)
+    public function update(Request $request, Growlog $growlog)
     {
-      $growlogstage->update(['stage_start' => $request->date]);
-      return Redirect::back();
+        //
     }
 
     /**
@@ -82,9 +84,15 @@ class GrowlogStageController extends Controller
      * @param  \App\Models\Growlog  $growlog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Growlog $growlog, GrowlogStage $growlogstage)
+    public function destroy(Growlog $growlog)
     {
         //
     }
+
+    public function stages(StageRequest $request, Growlog $growlog)
+    {
+      dd($request->all());
+    }
+
 
 }

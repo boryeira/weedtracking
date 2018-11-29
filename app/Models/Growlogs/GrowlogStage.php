@@ -13,12 +13,12 @@ class GrowlogStage extends Model
       'stage_start'
   ];
 
-  //boot al instanciar modelo
-  public static function boot()
-  {
-    //observador del modelo
-    GrowlogStage::observe(GrowlogStageObserver::class);
-  }
+  // //boot al instanciar modelo
+  // public static function boot()
+  // {
+  //   //observador del modelo
+  //
+  // }
 
   public function stage()
   {

@@ -15,12 +15,12 @@ class GrowlogDay extends Model
   //transformador para la api
   public $transformer = GrowlogDayTransformer::Class;
 
-  //boot al instanciar modelo
-  public static function boot()
-  {
-    //observador del modelo
-    GrowlogDay::observe(GrowlogDayObserver::class);
-  }
+  // //boot al instanciar modelo
+  // public static function boot()
+  // {
+  //   //observador del modelo
+  //
+  // }
 
   public function growlog()
   {

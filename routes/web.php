@@ -19,11 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/growlogs', 'GrowlogController'); //CRUDS growlog
+Route::resource('/growlogs', 'Growlogs\GrowlogController'); //CRUDS growlog
 
 Route::prefix('/growlogs/{growlog}/')->group( function (){
-  Route::resource('days', 'GrowlogDayController'); //CRUDS growlog days
-  Route::resource('growlogstages', 'GrowlogStageController'); //actualizar  estapas
+  Route::resource('days', 'Growlogs\GrowlogDayController'); //CRUDS growlog days
+  Route::resource('growlogstages', 'Growlogs\GrowlogStageController'); //actualizar  estapas
 });
 
 

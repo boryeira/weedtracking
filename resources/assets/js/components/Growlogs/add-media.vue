@@ -2,13 +2,14 @@
   <!-- bind event 'done' to receive file uploaded info -->
   <div>
     <div class="form-group">
-      <datepicker v-model="today" name="date" input-class="form-control"></datepicker>
+      <datepicker v-model="today" name="date" input-class="form-control" :format="yyyy/MM/dd"></datepicker>
     </div>
     <div class="form-group">
       <a @click="addImage()" class="btn btn-outline-primary btn-fix btn-block">
           <span class="btn-icon"><i class="ti-cloud-up"></i>Agregar imagen</span>
       </a>
     </div>
+
     <div class="form-group">
       <div style="display: none">
         <input type="file" ref="image1" @change="previewImage" accept="image/*" name="images[]">
