@@ -1,8 +1,8 @@
 <script src="{{ asset('js/toastr.min.js') }}"></script>
 {{-- alertas success --}}
-@if(Session::has('success'))
+@if(true)
   <script defer>
-  $(function ()
+$( document ).ready(function()
   {
 
       toastr.options =
@@ -11,7 +11,7 @@
         "debug": false,
         "newestOnTop": false,
         "progressBar": false,
-        "positionClass": "toast-bottom-right",
+        "positionClass": "toast-top-right",
         "preventDuplicates": false,
         "onclick": null,
         "showDuration": "0",
@@ -33,7 +33,7 @@
 {{-- alerta warning --}}
 @if(Session::has('warning'))
   <script defer>
-  $(function ()
+$( document ).ready(function()
   {
       toastr.options =
       {
@@ -41,7 +41,7 @@
         "debug": false,
         "newestOnTop": false,
         "progressBar": true,
-        "positionClass": "toast-bottom-right",
+        "positionClass": "toast-top-right",
         "preventDuplicates": false,
         "onclick": null,
         "showDuration": "0",
@@ -96,7 +96,7 @@
 {{-- errores --}}
 @if(count($errors->all())!=0)
   <script defer>
-  $(function ()
+$( document ).ready(function()
   {
 
       toastr.options =
@@ -105,7 +105,7 @@
         "debug": false,
         "newestOnTop": false,
         "progressBar": false,
-        "positionClass": "toast-bottom-right",
+        "positionClass": "toast-top-right",
         "preventDuplicates": false,
         "onclick": null,
         "showDuration": "0",

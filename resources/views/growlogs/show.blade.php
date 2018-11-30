@@ -2,8 +2,16 @@
 
 
 @section('content')
+  @if(Session::has('success'))
+    <alerts alertText="{!!Session::get('success')!!}"></alerts>
+  @endif
+  @if(Session::has('warning'))
+    <alerts alertText="{!!Session::get('warning')!!}"></alerts>
+  @endif
+
     <div class="row justify-content-center">
         <div class="col-md-4">
+          {{-- header --}}
           <div class="card text-center has-cup card-air centered mb-4">
               <div class="card-cup bg-warning">
               </div>

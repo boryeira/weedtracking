@@ -32,7 +32,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
       $collection = $this->filtrarDatos($collection, $transformer);
 
-      $collection = $this->ordenarData($collection, $transformer);
+      $collection = $this->sortData($collection, $transformer);
 
       $collection = $this->paginate($collection, $transformer);
 
@@ -55,7 +55,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
       $collection = $this->filtrarDatos($collection, $transformer);
 
-      $collection = $this->ordenarData($collection, $transformer);
+      $collection = $this->sortData($collection, $transformer);
 
       $collection = $this->paginate($collection, $transformer);
 
@@ -90,17 +90,20 @@ use Illuminate\Pagination\LengthAwarePaginator;
     }
 
     // Función protegida que ordena una colección (ocupada en método "showAll")
-    protected function ordenarData(Collection $collection, $transformer)
-    {
-      if (request()->has('sort_by')) {
-        $attribute = $transformer::originalAttribute(request()->sort_by);
+    //sort data para la coleccion
+    	protected function sortData(Collection $collection, $transformer)
+    	{
+    		if (request()->has('sort_by_desc')) {
+    			$attribute = $transformer::originalAttribute(request()->sort_by_desc);
+    			$collection = $collection->sortByDesc->{$attribute};
+    		}
+    		if (request()->has('sort_by_asc')) {
+    			$attribute = $transformer::originalAttribute(request()->sort_by_asc);
+    			$collection = $collection->sortBy->{$attribute};
+    		}
+    		return $collection;
+    	}
 
-        $collection = $collection->sortBy->{$attribute};
-      }
-
-      return $collection;
-
-    }
 
     protected function paginate(Collection $collection)
     {

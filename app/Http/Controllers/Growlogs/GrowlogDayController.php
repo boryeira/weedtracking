@@ -7,6 +7,7 @@ use App\Models\Growlogs\GrowlogDay;
 use App\Models\Growlogs\Growlog;
 use Illuminate\Http\Request;
 use Session;
+use Carbon\Carbon;
 
 class GrowlogDayController extends Controller
 {
@@ -38,19 +39,21 @@ class GrowlogDayController extends Controller
      */
     public function store(Request $request, Growlog $growlog )
     {
-      dd($request->date);
+      //dd($request->date);
         $growlogDay = new GrowlogDay;
         $growlogDay->growlog_id = $growlog->id;
-        $growlogDay->date = $request->date;
-        if($growlogDay->save())
+        $growlogDay->date = Carbon::createFromFormat('d/m/Y', $request->date);
+        if(true)
         {
           // foreach ( $request->file('images') as $img) {
           //
           // }
+
           Session::flash('success', 'wiiii');
           return  redirect('/growlogs/'.$growlog->id);
 
         } else {
+
           Session::flash('warning', 'seguimiento ya creado');
           return  redirect('/growlogs/'.$growlog->id);
         }

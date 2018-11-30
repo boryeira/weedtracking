@@ -2,7 +2,7 @@
   <!-- bind event 'done' to receive file uploaded info -->
   <div>
     <div class="form-group">
-      <datepicker v-model="today" name="date" input-class="form-control" :format="yyyy/MM/dd"></datepicker>
+      <datepicker v-model="today" name="date" input-class="form-control" format="dd/MM/yyyy"></datepicker>
     </div>
     <div class="form-group">
       <a @click="addImage()" class="btn btn-outline-primary btn-fix btn-block">

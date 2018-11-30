@@ -51,9 +51,13 @@ import InfiniteLoading from 'vue-infinite-loading';
 
 Vue.prototype.$http = axios;
 
+
 export default {
   mounted() {
-      console.log('montado el componente')
+      console.log('lista de dias');
+      // options to the toast
+
+
   },
   data() {
     return {

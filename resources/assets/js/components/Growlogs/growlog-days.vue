@@ -58,11 +58,13 @@
 import InfiniteLoading from 'vue-infinite-loading';
 
 
+
 Vue.prototype.$http = axios;
 
 export default {
   mounted() {
-      console.log('montado el componente growlog')
+  
+      console.log('montado el componente growlog');
   },
   data() {
     return {

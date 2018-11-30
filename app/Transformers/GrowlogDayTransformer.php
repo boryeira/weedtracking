@@ -22,11 +22,11 @@ class GrowlogDayTransformer extends TransformerAbstract
       'stage' => $growlogDay->stage->name ?? '' ,
       'images' => [
         'count' => count($growlogDay->images),
-        'links' => $growlogDay->images->toArray(),
+        'links' => $growlogDay->images->toArray() ?? array(0 => null),
       ],
       'texts' => [
         'count' => count($growlogDay->texts),
-        'links' => $growlogDay->texts->toArray(),
+        'links' => $growlogDay->texts->toArray() ?? array(0 => null),
       ],
       'links' => [
         'self' => [
