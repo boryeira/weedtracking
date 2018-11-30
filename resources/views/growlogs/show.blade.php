@@ -4,9 +4,11 @@
 @section('content')
   @if(Session::has('success'))
     <alerts alertText="{!!Session::get('success')!!}"></alerts>
+    <p>{!!Session::get('success')!!}</p>
   @endif
   @if(Session::has('warning'))
     <alerts alertText="{!!Session::get('warning')!!}"></alerts>
+    <p>{!!Session::get('success')!!}</p>
   @endif
 
     <div class="row justify-content-center">

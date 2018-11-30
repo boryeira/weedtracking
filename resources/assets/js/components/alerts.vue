@@ -17,8 +17,8 @@
       },
         mounted() {
             console.log('toasted entra.');
-            console.log(alert);
-            this.$toasted.show('peoo',this.options);
+            console.log(this.alertText);
+            this.$toasted.show(this.alertText,this.options);
         }
     }
 </script>
