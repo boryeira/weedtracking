@@ -61,18 +61,19 @@ class GrowlogStageObserver
         }
 
         foreach ($growlog->growlogStages as $growlogStageIn) {
-          $start = $growlogStageIn->stage_start;
-          $end = $growlogStageIn->stage_end ?? today();
+          $start = new Carbon($growlogStageIn->stage_start);
+          $end = new Carbon($growlogStageIn->stage_end) ?? today();
           if($start!=null){
-            $growdays = $growlog->days()->where('date','>=',$start)->where('date','<=',$end)->get();
-            foreach ($growdays as $day) {
 
+            $growdays = $growlog->days()->where('date','>=',$start->format('Y-m-d'))->where('date','<=',$end->format('Y-m-d'))->get();
+            foreach ($growdays as $day) {
               $day->stage_id = $growlogStageIn->stage_id;
-              $stages_start = new Carbon($start);
+              $stages_start = $start;
               $date = new Carbon($day->date);
               $dif = $stages_start->diffInDays($date)+1;
               $day->stage_day = $dif;
               $day->timestamps = false;
+              $day->flushEventListeners();
               $day->save();
             }
           }

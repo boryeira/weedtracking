@@ -24,7 +24,7 @@ window.Vue = require('vue');
   Vue.component('InfiniteLoading', require('vue-infinite-loading'));
   Vue.component('days-list', require('./components/Growlogs/days-list.vue'));
   Vue.component('add-media', require('./components/Growlogs/add-media.vue'));
-  Vue.component('alerts', require('./components/alerts.vue'));
+
 
   Vue.prototype.$http = axios;
 

@@ -1,6 +1,6 @@
 <script src="{{ asset('js/toastr.min.js') }}"></script>
 {{-- alertas success --}}
-@if(true)
+@if(Session::has('success'))
   <script defer>
 $( document ).ready(function()
   {

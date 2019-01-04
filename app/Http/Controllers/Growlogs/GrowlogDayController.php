@@ -68,7 +68,7 @@ class GrowlogDayController extends Controller
 
 
 
-          Session::flash('success', 'wiiii');
+          Session::flash('success', 'Vitacora Actualizada!');
           return  redirect('/growlogs/'.$growlog->id);
 
         } else {

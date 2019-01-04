@@ -55,7 +55,7 @@
     <!-- END PAGA BACKDROPS-->
 
     <!-- BEGIN ALERTS-->
-    @include('layouts.alert')
+
     <!-- END ALERTS-->
 
     <!-- Scripts -->
@@ -74,6 +74,7 @@
 
 
     <script src="{{ asset('js/template.js') }}" defer></script>
+    @include('layouts.alert')
 
 </body>
 </html>

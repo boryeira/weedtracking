@@ -58,7 +58,14 @@ Vue.prototype.$http = axios;
 export default {
   mounted() {
       console.log('lista de dias');
-      // options to the toast
+      axios.get('/api/growlogs/'+this.growlog+'/days?page='+this.page)
+           .then(response => {
+              var data = response.data.data;
+              var pagination = response.data.meta.pagination;
+              this.days = response.data.data;
+              console.log(this.days);
+              this.page = this.page + 1;
+            });
 
 
   },
@@ -88,7 +95,12 @@ export default {
                 var pagination = response.data.meta.pagination;
                 this.days = this.days.concat(response.data.data);
                 console.log(this.days);
-                $state.loaded();
+                if(pagination.current_page < pagination.total_pages )
+                {
+                  $state.loaded();
+                } else {
+                  $state.complete();
+                }
               });
               this.page = this.page + 1;
       }, 1000);

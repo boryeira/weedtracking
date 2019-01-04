@@ -7,6 +7,7 @@ use App\Models\Growlogs\Growlog;
 use App\Models\Growlogs\GrowlogDay;
 use App\Http\Requests\StageRequest;
 use Illuminate\Http\Request;
+use Session;
 
 class GrowlogController extends Controller
 {
