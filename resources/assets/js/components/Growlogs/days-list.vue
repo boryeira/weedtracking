@@ -2,9 +2,9 @@
   <div>
     <ul class="media-list media-list-divider">
       <li class="media" v-for="day in days" v-b-modal.daymodal v-on:click="clickday = day">
-
+        <!-- <p>{{JSON.stringify(day)}} </p> -->
           <div class="media-img pr-4">
-              <img :src="day.images.links[0].url" alt="image" width="120">
+              <img v-if ="day.images.count >0" :src="day.images.links[0].url" alt="image" width="120">
           </div>
           <div class="media-body d-flex ">
             <div class="flex-1">
@@ -16,10 +16,13 @@
               <p class="text-muted">{{day.fecha}}</p>
 
             </div>
+            <div  v-if ="day.texts.count >0" class="text-right" >
+              <p>{{day.texts.links[0].content}}</p>
+
+            </div>
 
           </div>
           <!-- modal -->
-
 
       </li>
     </ul>

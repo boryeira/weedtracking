@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Growlogs;
 
 use App\Http\Controllers\Controller;
 use App\Models\Growlogs\GrowlogDay;
+use App\Models\Growlogs\GrowlogDayText;
 use App\Models\Growlogs\Growlog;
 use Illuminate\Http\Request;
 use Session;
@@ -43,18 +44,36 @@ class GrowlogDayController extends Controller
         $growlogDay = new GrowlogDay;
         $growlogDay->growlog_id = $growlog->id;
         $growlogDay->date = Carbon::createFromFormat('d/m/Y', $request->date);
-        if(true)
+
+        if($growlogDay->save())
         {
-          // foreach ( $request->file('images') as $img) {
-          //
-          // }
+          //condicional de imagenes
+
+          if($request->file('images'))
+          {
+            foreach ( $request->file('images') as $img) {
+
+            }
+          }
+
+          //condicional de texto
+          if($request->has('text'))
+          {
+            $growlogDayText = new GrowlogDayText;
+            $growlogDayText->growlog_day_id = $growlogDay->id;
+            $growlogDayText->content = $request->text;
+            $growlogDayText->save();
+          }
+
+
+
 
           Session::flash('success', 'wiiii');
           return  redirect('/growlogs/'.$growlog->id);
 
         } else {
 
-          Session::flash('warning', 'seguimiento ya creado');
+          Session::flash('warning', 'Seguimiento ya creado. Puedes editarlo AQUI');
           return  redirect('/growlogs/'.$growlog->id);
         }
     }
