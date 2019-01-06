@@ -53,6 +53,7 @@ class GrowlogController extends Controller
      */
     public function show(Growlog $growlog)
     {
+
       return view('growlogs.show')->with('growlog',$growlog);
     }
 

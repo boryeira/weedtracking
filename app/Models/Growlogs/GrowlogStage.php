@@ -9,14 +9,11 @@ use App\Models\Stage;
 
 class GrowlogStage extends Model
 {
-  protected $date = [
-      'stage_start',
-      'stage_end',
-  ];
+  protected $date = ['stage_start','stage_end'];
 
   protected $fillable = [
       'stage_start',
-      'stage_end',
+      'stage_end'
   ];
 
   // //boot al instanciar modelo

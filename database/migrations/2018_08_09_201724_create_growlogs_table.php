@@ -40,6 +40,7 @@ class CreateGrowlogsTable extends Migration
         Schema::create('stages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('class');
             $table->unsignedInteger('weight');
             $table->timestamps();
 

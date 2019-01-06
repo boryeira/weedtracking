@@ -61,31 +61,44 @@ class GrowlogStageObserver
         }
 
         foreach ($growlog->growlogStages as $growlogStageIn) {
-          $start = new Carbon($growlogStageIn->stage_start);
-          $end = new Carbon($growlogStageIn->stage_end) ?? today();
+
+          $start = $growlogStageIn->stage_start;
+          $end = $growlogStageIn->stage_end;
+
           if($start!=null){
-
-            $growdays = $growlog->days()->where('date','>=',$start->format('Y-m-d'))->where('date','<=',$end->format('Y-m-d'))->get();
-            foreach ($growdays as $day) {
-              $day->stage_id = $growlogStageIn->stage_id;
-              $stages_start = $start;
-              $date = new Carbon($day->date);
-              $dif = $stages_start->diffInDays($date)+1;
-              $day->stage_day = $dif;
-              $day->timestamps = false;
-              $day->flushEventListeners();
-              $day->save();
+            if($end!=null)
+            {
+              $growdays = $growlog->days()->where('date','>=',$start)->where('date','<=',$end)->get();
+              foreach ($growdays as $day) {
+                $day->stage_id = $growlogStageIn->stage_id;
+                $date = new Carbon($day->date);
+                $start_day = new Carbon($start);
+                $dif = $start_day->diffInDays($date)+1;
+                $day->stage_day = $dif;
+                $day->timestamps = false;
+                $day->flushEventListeners();
+                $day->save();
+              }
+            } else {
+              $growdays = $growlog->days()->where('date','>=',$start)->get();
+              foreach ($growdays as $day) {
+                $day->stage_id = $growlogStageIn->stage_id;
+                $date = new Carbon($day->date);
+                $start_day = new Carbon($start);
+                $dif = $start_day->diffInDays($date)+1;
+                $day->stage_day = $dif;
+                $day->timestamps = false;
+                $day->flushEventListeners();
+                $day->save();
+              }
             }
-          }
 
+          }
 
         }
 
 
-
           session::flash('success','periodo actualizado');
-
-
 
 
       }

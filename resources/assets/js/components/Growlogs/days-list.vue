@@ -62,16 +62,22 @@ Vue.prototype.$http = axios;
 export default {
   mounted() {
       console.log('lista de dias');
+
+
+
+  },
+  computed: {
+    days: function () {
       axios.get('/api/growlogs/'+this.growlog+'/days?page='+this.page)
            .then(response => {
               var data = response.data.data;
               var pagination = response.data.meta.pagination;
-              this.days = response.data.data;
               console.log(this.days);
               this.page = this.page + 1;
+              //this.days = response.data.data;
+              return response.data.data;
             });
-
-
+    }
   },
   data() {
     return {

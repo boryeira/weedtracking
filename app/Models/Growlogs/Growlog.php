@@ -3,6 +3,7 @@
 namespace App\Models\Growlogs;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Growlogs\GrowlogStage;
 use App\Transformers\GrowlogTransformer;
 
 
@@ -41,7 +42,22 @@ class Growlog extends Model
 
   public function actualStage()
   {
-      return $this->hasMany('App\Models\Growlogs\GrowlogStage', 'growlog_id')->where('stage_start','<=',today())->where('stage_end','>=',today())->first();
+      $growlogStage = $this->hasMany('App\Models\Growlogs\GrowlogStage', 'growlog_id')->where('stage_start','<=',today())->where('stage_end',null)->first();
+      if($growlogStage == null)
+      {
+        $stage = new GrowlogStage;
+        $stage->name = '-Sin estado-';
+        $stage->class = 'secondary';
+      }
+      else
+      {
+        $stage = $growlogStage->stage;
+      }
+
+      return $stage;
+
+
+
   }
 
   public function images()
