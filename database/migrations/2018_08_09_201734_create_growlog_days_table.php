@@ -26,6 +26,7 @@ class CreateGrowlogDaysTable extends Migration
           $table->increments('id');
           $table->unsignedInteger('growlog_day_id')->nullable();
           $table->longText('link');
+          $table->longText('raw');
           $table->timestamps();
       });
 

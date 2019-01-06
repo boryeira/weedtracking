@@ -6,19 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-4">
           {{-- header --}}
-          <div class="card text-center has-cup card-air centered mb-4">
-              <div class="card-cup bg-warning">
-              </div>
-              <div class="card-body">
-
-                  <div class="card-avatar mb-4">
-                      <img class="img-circle" src="{{url('img/plant.png')}}" alt="image">
-                  </div>
-                  <h4 class="card-title text-warning mb-1">{{$growlog->name}}</h4>
-                  <div class="text-muted">Manager</div>
-                  <p class="mt-4 mb-5">{{$growlog->description}}</p>
-              </div>
-          </div>
+          @include('growlogs.header',['growlog' => $growlog])
 
 
 
@@ -50,7 +38,7 @@
     <div class="modal" tabindex="-1" role="dialog" id="add-media-modal" >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          {{Form::open(['route' => ['days.store',$growlog->id], 'method' => 'POST'])}}
+          {{Form::open(['route' => ['days.store',$growlog->id], 'method' => 'POST','files' => true])}}
           <div class="modal-header">
             <h5 class="modal-title">Agregar Seguimiento</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">

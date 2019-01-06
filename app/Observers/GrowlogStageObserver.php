@@ -44,7 +44,7 @@ class GrowlogStageObserver
         }
         //FIN NEXT
 
-        session::flash('success','todo bien');
+
 
       }
 
@@ -83,7 +83,7 @@ class GrowlogStageObserver
 
 
 
-
+          session::flash('success','periodo actualizado');
 
 
 

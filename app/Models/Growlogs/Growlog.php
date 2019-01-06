@@ -39,6 +39,11 @@ class Growlog extends Model
       return $this->hasMany('App\Models\Growlogs\GrowlogStage', 'growlog_id');
   }
 
+  public function actualStage()
+  {
+      return $this->hasMany('App\Models\Growlogs\GrowlogStage', 'growlog_id')->where('stage_start','<=',today())->where('stage_end','>=',today())->first();
+  }
+
   public function images()
   {
       return $this->hasManyThrough('App\Models\Growlogs\GrowlogDayImage', 'App\Models\Growlogs\GrowlogDay', 'growlog_id','growlog_day_id','id','id');

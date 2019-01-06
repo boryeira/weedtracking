@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Growlogs;
 use App\Http\Controllers\Controller;
 use App\Models\Growlogs\GrowlogDay;
 use App\Models\Growlogs\GrowlogDayText;
+use App\Models\Growlogs\GrowlogDayImage;
 use App\Models\Growlogs\Growlog;
 use Illuminate\Http\Request;
 use Session;
+use Storage;
 use Carbon\Carbon;
 
 class GrowlogDayController extends Controller
@@ -48,16 +50,23 @@ class GrowlogDayController extends Controller
         if($growlogDay->save())
         {
           //condicional de imagenes
-
           if($request->file('images'))
           {
-            foreach ( $request->file('images') as $img) {
 
+            foreach ( $request->file('images') as $img) {
+              $path = $img->store('growlogs/'.$growlog->id);
+              $raw = Storage::url($path);
+
+              $growlogDayImage = new GrowlogDayImage;
+              $growlogDayImage->growlog_day_id = $growlogDay->id;
+              $growlogDayImage->raw = $raw;
+              $growlogDayImage->link = $raw;
+              $growlogDayImage->save();
             }
           }
 
           //condicional de texto
-          if($request->has('text'))
+          if($request->text!=null)
           {
             $growlogDayText = new GrowlogDayText;
             $growlogDayText->growlog_day_id = $growlogDay->id;
@@ -84,9 +93,11 @@ class GrowlogDayController extends Controller
      * @param  \App\Models\GrowlogDay  $growlogDay
      * @return \Illuminate\Http\Response
      */
-    public function show(GrowlogDay $growlogDay)
+    public function show(Growlog $growlog, GrowlogDay $day)
     {
-        //
+        return view('growlogs.days.show')
+                    ->with('growlog',$growlog)
+                    ->with('day',$day);
     }
 
     /**

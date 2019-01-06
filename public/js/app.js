@@ -54412,6 +54412,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -54507,21 +54511,9 @@ var render = function() {
               }
             },
             [
-              _c("div", { staticClass: "media-img pr-4" }, [
-                day.images.count > 0
-                  ? _c("img", {
-                      attrs: {
-                        src: day.images.links[0].url,
-                        alt: "image",
-                        width: "120"
-                      }
-                    })
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
               _c("div", { staticClass: "media-body d-flex " }, [
                 _c("div", { staticClass: "flex-1" }, [
-                  _c("h5", { staticClass: "media-heading font-strong mt-5" }, [
+                  _c("h5", { staticClass: "font-strong" }, [
                     _vm._v(
                       "\n              Día " +
                         _vm._s(day.day) +
@@ -54543,6 +54535,18 @@ var render = function() {
                       _c("p", [_vm._v(_vm._s(day.texts.links[0].content))])
                     ])
                   : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "media-img pr-4" }, [
+                day.images.count > 0
+                  ? _c("img", {
+                      attrs: {
+                        src: day.images.links[0].link,
+                        alt: "image",
+                        width: "120"
+                      }
+                    })
+                  : _vm._e()
               ])
             ]
           )
@@ -54560,16 +54564,17 @@ var render = function() {
       _vm._v(" "),
       _c(
         "b-modal",
-        { attrs: { id: "daymodal", title: "Seguimiento" } },
+        { attrs: { id: "daymodal" } },
         [
-          _c("h5", {}, [
+          _c("div", { attrs: { slot: "modal-title" }, slot: "modal-title" }, [
             _vm._v(
-              "Día " +
+              "\n        Día " +
                 _vm._s(_vm.clickday.day) +
                 " " +
                 _vm._s(_vm.clickday.stage) +
                 " " +
-                _vm._s(_vm.clickday.fecha)
+                _vm._s(_vm.clickday.fecha) +
+                "\n      "
             )
           ]),
           _vm._v(" "),
@@ -54580,7 +54585,7 @@ var render = function() {
                 "b-row",
                 _vm._l(_vm.clickday.images.links, function(img) {
                   return _c("b-col", [
-                    _c("img", { attrs: { src: img.url, alt: "image" } })
+                    _c("img", { attrs: { src: img.link, alt: "image" } })
                   ])
                 })
               )

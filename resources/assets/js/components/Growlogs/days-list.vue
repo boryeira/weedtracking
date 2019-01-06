@@ -3,13 +3,10 @@
     <ul class="media-list media-list-divider">
       <li class="media" v-for="day in days" v-b-modal.daymodal v-on:click="clickday = day">
         <!-- <p>{{JSON.stringify(day)}} </p> -->
-          <div class="media-img pr-4">
-              <img v-if ="day.images.count >0" :src="day.images.links[0].url" alt="image" width="120">
-          </div>
           <div class="media-body d-flex ">
             <div class="flex-1">
 
-              <h5 class="media-heading font-strong mt-5">
+              <h5 class="font-strong">
                 Día {{day.day}}
               </h5>
               <p class="text-muted">{{day.stage}}</p>
@@ -22,18 +19,25 @@
             </div>
 
           </div>
+          <div class="media-img pr-4">
+              <img v-if ="day.images.count >0" :src="day.images.links[0].link" alt="image" width="120">
+          </div>
           <!-- modal -->
 
       </li>
     </ul>
 
       <infinite-loading @distance="0" @infinite="infiniteHandler"></infinite-loading>
-      <b-modal id="daymodal"  title="Seguimiento">
-        <h5 class="">Día {{clickday.day}} {{clickday.stage}} {{clickday.fecha}}</h5>
+
+      <b-modal id="daymodal" >
+
+        <div slot="modal-title">
+          Día {{clickday.day}} {{clickday.stage}} {{clickday.fecha}}
+        </div>
          <span></span>
         <b-row v-if ="clickday.images">
           <b-col  v-for ="img in clickday.images.links ">
-            <img :src="img.url" alt="image" >
+            <img :src="img.link" alt="image" >
           </b-col>
         </b-row>
         <b-row v-if ="clickday.texts">
