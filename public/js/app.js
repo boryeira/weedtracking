@@ -54445,6 +54445,7 @@ Vue.prototype.$http = axios;
       slide: 0,
       sliding: null,
       days: [],
+      day: [],
       page: 1,
       clickday: []
     };
@@ -54476,6 +54477,9 @@ Vue.prototype.$http = axios;
         });
         _this2.page = _this2.page + 1;
       }, 1000);
+    },
+    goToDay: function goToDay(day) {
+      window.location.href = day.links.self.href;
     }
   },
   components: {
@@ -54512,7 +54516,7 @@ var render = function() {
               staticClass: "media",
               on: {
                 click: function($event) {
-                  _vm.clickday = day
+                  _vm.goToDay(day)
                 }
               }
             },

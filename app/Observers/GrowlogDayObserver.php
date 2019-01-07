@@ -30,12 +30,6 @@ class GrowlogDayObserver
           $growlogDay->save();
       }
 
-      // if(($growlogDay->date->gte($stage->stage_start))&&($growlogDay->date->lte($stage->stage_end)) )
-      // {
-      //   $growlogDay->stage_id = $stage->id;
-      //   $growlogDay->flushEventListeners();
-      //   $growlogDay->save();
-      // }
     }
 
   }

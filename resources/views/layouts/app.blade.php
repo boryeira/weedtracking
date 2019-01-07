@@ -39,7 +39,7 @@
           <!-- START PAGE CONTENT-->
           @yield('page-header')
           <div class="page-content ">
-            @yield('content')
+          @yield('content')
           </div>
           <footer class="page-footer">
             <div class="float" style="display: block;">@yield('fab')</div>

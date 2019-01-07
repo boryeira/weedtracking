@@ -30,7 +30,8 @@ class GrowlogDayTransformer extends TransformerAbstract
       ],
       'links' => [
         'self' => [
-          'href' => route('api.days.show',['growlog' => $growlogDay->growlog->id , 'day' =>$growlogDay->id] ),
+          'href' => route('days.show',['growlog' => $growlogDay->growlog->id , 'day' =>$growlogDay->id] ),
+          'api' => route('api.days.show',['growlog' => $growlogDay->growlog->id , 'day' =>$growlogDay->id] ),
         ],
         'growlog' => [
           'name' => $growlogDay->growlog->name,

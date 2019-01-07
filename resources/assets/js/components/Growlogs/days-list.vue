@@ -1,11 +1,11 @@
 <template>
   <div>
     <ul class="media-list media-list-divider">
-      <li class="media" v-for="day in days" v-b-modal.daymodal v-on:click="clickday = day">
+      <li class="media" v-for="day in days" v-b-modal.daymodal v-on:click="goToDay(day)">
+      <!-- <li class="media" v-for="day in days"  v-on:click="goToDay(day)"> -->
         <!-- <p>{{JSON.stringify(day)}} </p> -->
           <div class="media-body d-flex ">
             <div class="flex-1">
-
               <h5 class="font-strong">
                 Día {{day.day}}
               </h5>
@@ -84,6 +84,7 @@ export default {
       slide: 0,
       sliding: null,
       days: [],
+      day: [],
       page: 1,
       clickday:[],
     };
@@ -114,6 +115,9 @@ export default {
               });
               this.page = this.page + 1;
       }, 1000);
+    },
+    goToDay(day) {
+      window.location.href = day.links.self.href;
     },
 
   },
