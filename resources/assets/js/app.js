@@ -33,9 +33,9 @@ window.Vue = require('vue');
   import 'bootstrap-vue/dist/bootstrap-vue.css';
 
   // register the plugin on vue
-  import Toasted from 'vue-toasted';
-
-  Vue.use(Toasted)
+  // import Toasted from 'vue-toasted';
+  //
+  // Vue.use(Toasted)
 
 
   Vue.use(BootstrapVue);

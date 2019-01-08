@@ -12,13 +12,7 @@
                     <li data-target="#carousel_1" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="card-img-top" :src="growlog.images.links[0].url" alt="image">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="card-img-top" :src="growlog.images.links[0].url" alt="image">
-                    </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item active" v-if="growlog.images.count > 0">
                         <img class="card-img-top" :src="growlog.images.links[0].url" alt="image">
                     </div>
                 </div>
@@ -27,7 +21,7 @@
             <div class="card-img-overlay">
                                 <div class="overlay-panel overlay-panel-bottom overlay-panel-dark flexbox">
                                     <div class="d-inline-flex align-items-center">
-                                        <a>
+                                        <a v-if="growlog.images.count > 0">
                                             <img class="img-circle img-bordered mr-3" :src="growlog.images.links[0].url" alt="image" width="48">
                                         </a>
                                         <div>
@@ -43,7 +37,7 @@
                             </div>
         </div>
         <div class="card-body">
-          <p class="content-maxed">{{growlog.texts.links[0].content}}</p>
+          <p v-if="growlog.texts.count > 0" class="content-maxed">{{growlog.texts.links[0].content}}</p>
 
         </div>
       </div>
@@ -63,7 +57,7 @@ Vue.prototype.$http = axios;
 
 export default {
   mounted() {
-  
+
       console.log('montado el componente growlog');
   },
   data() {
