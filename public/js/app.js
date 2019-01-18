@@ -20267,7 +20267,11 @@ Vue.component('growlog', __webpack_require__(106));
 Vue.component('growlog-days', __webpack_require__(109));
 Vue.component('InfiniteLoading', __webpack_require__(22));
 Vue.component('days-list', __webpack_require__(112));
+
 Vue.component('add-media', __webpack_require__(115));
+
+//days
+Vue.component('day-images', __webpack_require__(240));
 
 Vue.prototype.$http = axios;
 
@@ -54395,6 +54399,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -54457,7 +54464,11 @@ Vue.prototype.$http = axios;
         _this2.page = _this2.page + 1;
       }, 1000);
     },
+    showDay: function showDay(day) {
+      this.clickday = day;
+    },
     goToDay: function goToDay(day) {
+
       window.location.href = day.links.self.href;
     }
   },
@@ -54495,7 +54506,7 @@ var render = function() {
               staticClass: "media",
               on: {
                 click: function($event) {
-                  _vm.goToDay(day)
+                  _vm.showDay(day)
                 }
               }
             },
@@ -54593,7 +54604,22 @@ var render = function() {
                   ])
                 })
               )
-            : _vm._e()
+            : _vm._e(),
+          _vm._v(" "),
+          _c("b-row", [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-success",
+                on: {
+                  click: function($event) {
+                    _vm.goToDay(_vm.clickday)
+                  }
+                }
+              },
+              [_vm._v("ver mas")]
+            )
+          ])
         ],
         1
       )
@@ -67406,6 +67432,132 @@ exports.push([module.i, ".fade-enter-active, .fade-leave-active {\n    transitio
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 239 */,
+/* 240 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(18)
+/* script */
+var __vue_script__ = __webpack_require__(241)
+/* template */
+var __vue_template__ = __webpack_require__(242)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Growlogs\\Days\\images.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-023fd14c", Component.options)
+  } else {
+    hotAPI.reload("data-v-023fd14c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 241 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('images');
+    axios.get('/api/growlogs/' + this.growlogId + '/days/' + this.dayId).then(function (response) {
+      console.log('imagenesssss');
+      return response.data.data;
+    });
+  },
+
+  computed: {},
+  name: 'images',
+  props: {
+    growlogId: Number,
+    dayId: Number
+  },
+  data: function data() {
+    return {
+      day: []
+    };
+  },
+  methods: {}
+
+});
+
+/***/ }),
+/* 242 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _vm.day.images
+        ? _c(
+            "b-row",
+            _vm._l(_vm.day.images.links, function(img) {
+              return _c("b-col", [
+                _c("img", { attrs: { src: img.link, alt: "image" } })
+              ])
+            })
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-023fd14c", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

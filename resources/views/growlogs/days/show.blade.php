@@ -9,7 +9,7 @@
 
           <div class="ibox">
             <div class="ibox-body">
-              <div class="d-flex justify-content-between mb-4">
+              <div class="d-flex justify-content-between mb-2">
                   <div>
                     @if($day->stage)
                       <h3 class="m-0">{{$day->stage->name}} Día {{$day->stage_day}} </h3>
@@ -18,13 +18,22 @@
                   </div>
                   <ul class="nav nav-pills nav-pills-rounded nav-pills-air" id="chart_tabs">
                     <li class="nav-item ml-1">
-                        <a class="nav-link" >Editar</a>
-                    </li>
-                    <li class="nav-item ml-1">
-                        <a class="nav-link  active" >Volver</a>
+                        <a class="nav-link  active" href="{{route('growlogs.show',['growlog' => $growlog->id])}}">Volver</a>
                     </li>
                   </ul>
               </div>
+                <div class="row">
+                  <div class="col-6">
+                    <day-images  v-bind:dayId="{{$day->id}}" v-bind:growlogId="{{$growlog->id}}" ></day-images>
+                  </div>
+                  <div class="col-6">
+
+                  </div>
+
+                </div>
+
+
+
 
             </div>
 

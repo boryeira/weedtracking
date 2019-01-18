@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="media-list media-list-divider">
-      <li class="media" v-for="day in days" v-b-modal.daymodal v-on:click="goToDay(day)">
+      <li class="media" v-for="day in days" v-b-modal.daymodal v-on:click="showDay(day)">
       <!-- <li class="media" v-for="day in days"  v-on:click="goToDay(day)"> -->
         <!-- <p>{{JSON.stringify(day)}} </p> -->
           <div class="media-body d-flex ">
@@ -48,6 +48,9 @@
             </p>
           </b-col>
         </b-row>
+        <b-row>
+          <button class="btn btn-success" v-on:click="goToDay(clickday)">ver mas</button>
+        </b-row>
       </b-modal>
   </div>
 </template>
@@ -62,9 +65,6 @@ Vue.prototype.$http = axios;
 export default {
   mounted() {
       console.log('lista de dias');
-
-
-
   },
   computed: {
     days: function () {
@@ -116,9 +116,15 @@ export default {
               this.page = this.page + 1;
       }, 1000);
     },
+    showDay(day) {
+      this.clickday = day;
+    },
     goToDay(day) {
+
       window.location.href = day.links.self.href;
     },
+
+
 
   },
   components: {

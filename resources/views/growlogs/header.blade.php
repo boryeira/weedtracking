@@ -33,7 +33,13 @@
                             <div class="mr-3 text-{{$growlog->actualStage()->class}}">{{$growlog->actualStage()->name}}</div>
                         </div>
                     </div>
+
                 </div>
+                {{-- @if($day)
+                <div>
+                  hola
+                </div>
+                @endif --}}
                 <div class="d-inline-flex">
                   <button class="btn btn-outline-info btn-icon-only btn-circle btn-lg"><i class="la la-pencil"></i></button>
                 </div>

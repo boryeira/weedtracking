@@ -65,7 +65,7 @@ class GrowlogController extends Controller
      */
     public function edit(Growlog $growlog)
     {
-        //
+        return view('growlogs.edit')->with('growlog',$growlog);
     }
 
     /**

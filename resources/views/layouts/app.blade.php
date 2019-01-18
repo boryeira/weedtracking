@@ -10,8 +10,6 @@
     <title>{{ config('app.name', 'Weedtracking') }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -23,7 +21,7 @@
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/metisMenu.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/flickity.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/dropzone.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     @yield('css')
 
@@ -61,9 +59,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" ></script>
 
-    <script src="{{ asset('js/moment.min.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/moment.min.js') }}" defer></script> --}}
     <script src="{{ asset('js/metisMenu.min.js') }}" defer></script>
-    <script src="{{ asset('js/dropzone.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/dropzone.js') }}" defer></script> --}}
 
 
 

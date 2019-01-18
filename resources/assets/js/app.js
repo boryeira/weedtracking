@@ -23,7 +23,11 @@ window.Vue = require('vue');
   Vue.component('growlog-days', require('./components/Growlogs/growlog-days.vue'));
   Vue.component('InfiniteLoading', require('vue-infinite-loading'));
   Vue.component('days-list', require('./components/Growlogs/days-list.vue'));
+
   Vue.component('add-media', require('./components/Growlogs/add-media.vue'));
+
+  //days
+  Vue.component('day-images', require('./components/Growlogs/Days/images.vue'));
 
 
   Vue.prototype.$http = axios;
